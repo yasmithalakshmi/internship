@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assignment operators</title>
+    <script>
+        function assignment() {
+            let x = parseFloat(document.getElementById("firstNumber").value);
+            let y = parseFloat(document.getElementById("secondNumber").value);
+            let plusEqual = x += y;
+            let minusEqual = x -= y;
+            let multiplyEqual = x *= y;
+            let divideEqual = x /= y;
+            let remainderEqual = x %= y;
+            alert(
+                "x += y: " + plusEqual +
+                "\nx -= y: " + minusEqual +
+                "\nx *= y: " + multiplyEqual +
+                "\nx /= y: " + divideEqual +
+                "\nx %= y: " + remainderEqual
+            );
+        }
+
+    </script>
+</head>
+<body>
+   <h1>Assignment Operators</h1> 
+    <label for="firstNumber">First Number:</label>
+     <input type="number" id="firstNumber">
+     <label for="secondNumber">Second Number:</label>
+     <input type="number" id="secondNumber">
+     <button onclick="assignment()">Calculate</button>
+</body>
+</html>

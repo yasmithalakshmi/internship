@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dream Events - Event Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    *{scroll-behavior:smooth}
+    body{font-family:Arial,sans-serif;background:#fff7ed;color:#111827}
+
+    .navbar{
+      background:rgba(56, 0, 74, 0.55);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      box-shadow:0 3px 18px rgba(0,0,0,.22)
+    }
+    .navbar-brand{color:#f59e0b!important;font-size:26px;font-weight:800}
+    .nav-link{
+      color:white!important;
+      font-weight:600;
+      position:relative;
+      padding-bottom:6px;
+      transition:.3s
+    }
+    .nav-link::after{
+      content:"";
+      position:absolute;
+      left:8px;
+      bottom:0;
+      width:0;
+      height:2px;
+      background:#f59e0b;
+      transition:.3s
+    }
+    .nav-link:hover,
+    .nav-link.active{color:#f59e0b!important}
+    .nav-link:hover::after,
+    .nav-link.active::after{width:70%}
+
+    .btn-main{background:#ec4899;color:white;border-radius:30px;padding:10px 25px;border:none}
+    .btn-main:hover{background:#db2777;color:white}
+    .btn-outline-main{border:2px solid #f59e0b;color:#f59e0b;border-radius:30px;padding:10px 25px;background:white}
+    .btn-outline-main:hover{background:#f59e0b;color:white}
+
+    .hero{position:relative;color:white;min-height:100vh;overflow:hidden;display:flex;align-items:center}
+    .hero-scroll{position:absolute;inset:0;z-index:0;display:flex;width:max-content;animation:heroScroll 28s linear infinite}
+    .hero-scroll img{height:100vh;width:100vw;object-fit:cover;flex-shrink:0}
+    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.35);z-index:1}
+    .hero-content{position:relative;z-index:2;max-width:720px;padding:20px 0;background:transparent;border-radius:0;backdrop-filter:none}
+    .hero h1{font-size:58px;font-weight:900;text-shadow:0 5px 18px rgba(0,0,0,.75)}
+    .hero p{max-width:650px;text-shadow:0 3px 12px rgba(0,0,0,.75)}
+    .hero .badge{box-shadow:0 4px 15px rgba(0,0,0,.25)}
+    .hero h1 span{color:#f59e0b}
+    @keyframes heroScroll{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-400vw)}
+    }
+
+    .section-title{font-weight:900;color:#2e003e;margin-bottom:35px}
+    .card-box{background:white;border-radius:18px;padding:25px;box-shadow:0 6px 20px rgba(0,0,0,.08);transition:.3s;height:100%}
+    .card-box:hover{transform:translateY(-6px)}
+    .icon{font-size:40px;margin-bottom:15px}
+
+    .work-slide{background:white;border-radius:24px;padding:28px;box-shadow:0 8px 25px rgba(0,0,0,.10)}
+    .work-content h3{color:#2e003e;font-weight:900;margin-bottom:15px}
+    .work-content p{color:#374151;line-height:1.7}
+    .work-content ul{padding-left:20px}
+    .work-content ul li{margin-bottom:8px}
+    .work-img{width:100%;height:420px;object-fit:cover;border-radius:22px;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+    .carousel-control-prev-icon,.carousel-control-next-icon{background-color:#ec4899;border-radius:50%;padding:20px}
+    #workCarousel{padding-bottom:45px}
+    #workCarousel .carousel-indicators{bottom:-10px}
+    #workCarousel .carousel-indicators button{background-color:#ec4899;width:12px;height:12px;border-radius:50%}
+
+    .package-card{background:white;border-radius:18px;padding:30px;box-shadow:0 6px 20px rgba(0,0,0,.1);height:100%;transition:.3s;border:2px solid transparent}
+    .package-card:hover{transform:translateY(-6px);border-color:#ec4899}
+    .package-card h3{color:#2e003e;font-weight:800}
+    .price{color:#ec4899;font-size:30px;font-weight:900}
+    .highlight{background:linear-gradient(135deg,#5b21b6,#ec4899);color:white;border-radius:18px;padding:40px}
+    .review-card{background:white;border-radius:18px;padding:25px;box-shadow:0 6px 20px rgba(0,0,0,.08);height:100%}
+    .booking-box{background:white;border-radius:18px;padding:35px;box-shadow:0 6px 25px rgba(0,0,0,.12)}
+    .footer{background:#2e003e;color:white;padding:45px 0 15px}
+    .footer a{display:block;color:#d1d5db;text-decoration:none;margin-bottom:8px}
+    .footer a:hover{color:#f59e0b}
+    .whatsapp,.top-btn{position:fixed;right:20px;width:55px;height:55px;border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:24px;z-index:999;box-shadow:0 4px 15px rgba(0,0,0,.25)}
+    .whatsapp{bottom:20px;background:#25d366}.top-btn{bottom:90px;background:#5b21b6}
+    
+    @media(max-width:991px){
+      .navbar-collapse{
+        background:rgba(46,0,62,.92);
+        backdrop-filter:blur(14px);
+        padding:18px;
+        border-radius:16px;
+        margin-top:12px;
+      }
+      .nav-link{
+        display:inline-block;
+        margin-bottom:8px;
+      }
+      .nav-link::after{
+        left:0;
+      }
+      .hero{
+        min-height:90vh;
+        padding-top:90px;
+        align-items:center;
+      }
+      .hero-scroll img{
+        height:90vh;
+      }
+      .hero-content{
+        max-width:100%;
+        padding:10px 0;
+      }
+      .hero h1{
+        font-size:42px;
+        line-height:1.15;
+      }
+      .hero p{
+        font-size:17px;
+      }
+      .work-slide{
+        padding:20px;
+      }
+      .work-img{
+        height:300px;
+        margin-top:15px;
+      }
+      .carousel-control-prev,
+      .carousel-control-next{
+        width:10%;
+      }
+      .booking-box{
+        padding:25px;
+      }
+    }
+
+    @media(max-width:768px){
+      body{
+        overflow-x:hidden;
+      }
+      .navbar-brand{
+        font-size:22px;
+      }
+      .hero{
+        min-height:86vh;
+        padding-top:80px;
+      }
+      .hero-scroll img{
+        height:86vh;
+      }
+      .hero::after{
+        background:rgba(0,0,0,.45);
+      }
+      .hero h1{
+        font-size:34px;
+      }
+      .hero p{
+        font-size:16px;
+      }
+      .hero .btn-main,
+      .hero .btn-outline-main{
+        display:block;
+        width:100%;
+        margin:10px 0!important;
+        text-align:center;
+      }
+      .section-title{
+        font-size:28px;
+        margin-bottom:25px;
+      }
+      .card-box{
+        padding:20px;
+      }
+      .work-slide{
+        padding:16px;
+        border-radius:18px;
+      }
+      .work-content{
+        text-align:center;
+      }
+      .work-content h3{
+        font-size:24px;
+      }
+      .work-img{
+        height:240px;
+        border-radius:16px;
+      }
+      .carousel-control-prev,
+      .carousel-control-next{
+        display:none;
+      }
+      #workCarousel{
+        padding-bottom:35px;
+      }
+      .package-card{
+        padding:24px;
+      }
+      .price{
+        font-size:26px;
+      }
+      .highlight{
+        padding:28px 18px;
+      }
+      .review-card{
+        padding:20px;
+      }
+      .booking-box{
+        padding:22px;
+      }
+      iframe{
+        height:200px;
+      }
+      .footer{
+        text-align:center;
+      }
+      .whatsapp,
+      .top-btn{
+        width:48px;
+        height:48px;
+        font-size:21px;
+        right:14px;
+      }
+      .whatsapp{
+        bottom:16px;
+      }
+      .top-btn{
+        bottom:78px;
+      }
+    }
+
+    @media(max-width:480px){
+      .hero{
+        min-height:82vh;
+        padding-top:75px;
+      }
+      .hero-scroll img{
+        height:82vh;
+      }
+      .hero h1{
+        font-size:30px;
+      }
+      .hero p{
+        font-size:15px;
+      }
+      .badge{
+        font-size:12px;
+      }
+      .btn-main,
+      .btn-outline-main{
+        padding:9px 18px;
+        font-size:14px;
+      }
+      .section-title{
+        font-size:25px;
+      }
+      .icon{
+        font-size:34px;
+      }
+      .work-img{
+        height:210px;
+      }
+      .work-content h3{
+        font-size:22px;
+      }
+      .work-content p{
+        font-size:15px;
+      }
+      .package-card h3{
+        font-size:22px;
+      }
+      .booking-box h4{
+        font-size:21px;
+      }
+      .form-control,
+      .form-select{
+        font-size:14px;
+      }
+    }
+
+  
+    /* Mobile Our Work order fix: image first, content second */
+    @media(max-width:991px){
+      #workCarousel .work-slide > div:first-child{
+        order:2;
+      }
+      #workCarousel .work-slide > div:last-child{
+        order:1;
+      }
+      #workCarousel .work-content{
+        margin-top:18px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#home">Dream Events</a>
+    <button class="navbar-toggler bg-light" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+        <li class="nav-item"><a href="#gallery" class="nav-link">Our Work</a></li>
+        <li class="nav-item"><a href="#packages" class="nav-link">Packages</a></li>
+        <li class="nav-item"><a href="#reviews" class="nav-link">Reviews</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="#booking" class="btn btn-main ms-lg-3">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-scroll">
+    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80" alt="Event Decor">
+    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80" alt="Wedding Event">
+    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1600&q=80" alt="Corporate Event">
+    <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1600&q=80" alt="Reception Event">
+    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80" alt="Event Decor">
+  </div>
+
+  <div class="container">
+    <div class="col-lg-7 hero-content">
+      <span class="badge bg-warning text-dark mb-3">Professional Event Planners</span>
+      <h1>We Make Your Events <span>Memorable</span></h1>
+      <p class="lead mt-3 mb-4">Creative planning, premium decoration, photography, catering and complete event support for every celebration.</p>
+      <a href="#booking" class="btn btn-main me-2">Book Event</a>
+      <a href="#gallery" class="btn btn-outline-main">View Our Work</a>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="services">
+  <div class="container text-center">
+    <h2 class="section-title">Our Event Services</h2>
+    <div class="row g-4">
+      <div class="col-md-3 col-sm-6"><div class="card-box"><div class="icon">💍</div><h5>Weddings</h5><p>Complete wedding planning, stage decoration and coordination.</p></div></div>
+      <div class="col-md-3 col-sm-6"><div class="card-box"><div class="icon">🎂</div><h5>Birthdays</h5><p>Theme decoration, cake table setup, games and entertainment.</p></div></div>
+      <div class="col-md-3 col-sm-6"><div class="card-box"><div class="icon">🏢</div><h5>Corporate Events</h5><p>Meetings, launches, seminars and professional event handling.</p></div></div>
+      <div class="col-md-3 col-sm-6"><div class="card-box"><div class="icon">🌸</div><h5>Decorations</h5><p>Floral, lighting, entrance, mandap and stage decoration.</p></div></div>
+      <div class="col-md-3 col-sm-6"><div class="card-box"><div class="icon">📸</div><h5>Photography</h5><p>Professional event photography and candid moments.</p></div></div>
+      <div class="col-md-3 col-sm-6"><div class="card-box"><div class="icon">🎥</div><h5>Videography</h5><p>Full HD event coverage, reels and cinematic videos.</p></div></div>
+      <div class="col-md-3 col-sm-6"><div class="card-box"><div class="icon">🍽️</div><h5>Catering</h5><p>Food menu planning and catering management.</p></div></div>
+      <div class="col-md-3 col-sm-6"><div class="card-box"><div class="icon">🎤</div><h5>Sound & Lighting</h5><p>Stage lighting, DJ, sound system and LED setup.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-white" id="gallery">
+  <div class="container">
+    <h2 class="section-title text-center mb-5">Our Recent Work</h2>
+    <div id="workCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2800" data-bs-pause="false" data-bs-touch="true">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#workCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#workCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#workCarousel" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#workCarousel" data-bs-slide-to="3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row align-items-center work-slide">
+            <div class="col-lg-6 mb-4 mb-lg-0 work-content">
+              <span class="badge bg-danger mb-3">Wedding Event</span><h3>Luxury Wedding Decoration</h3>
+              <p>Elegant wedding décor with premium flowers, lighting, stage setup and smooth coordination.</p>
+              <p class="mb-2">Perfect for weddings, engagements and grand receptions.</p>
+              <a href="#booking" class="btn btn-main mt-3">Book This Style</a>
+            </div>
+            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80" class="img-fluid work-img" alt="Wedding"></div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row align-items-center work-slide flex-lg-row-reverse">
+            <div class="col-lg-6 mb-4 mb-lg-0 work-content">
+              <span class="badge bg-primary mb-3">Corporate Event</span><h3>Corporate Annual Meet</h3>
+              <p>Clean and professional setup for meetings, launches and corporate celebrations.</p>
+              <p class="mb-2">Includes branding, seating, sound and event flow support.</p>
+              <a href="#booking" class="btn btn-main mt-3">Book This Style</a>
+            </div>
+            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1000&q=80" class="img-fluid work-img" alt="Corporate"></div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row align-items-center work-slide">
+            <div class="col-lg-6 mb-4 mb-lg-0 work-content">
+              <span class="badge bg-warning text-dark mb-3">Birthday Event</span><h3>Theme Birthday Celebration</h3>
+              <p>Fun theme-based birthday décor with balloons, cake table, games and photo spots.</p>
+              <p class="mb-2">Best for kids, family parties and surprise celebrations.</p>
+              <a href="#booking" class="btn btn-main mt-3">Book This Style</a>
+            </div>
+            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1000&q=80" class="img-fluid work-img" alt="Birthday"></div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row align-items-center work-slide flex-lg-row-reverse">
+            <div class="col-lg-6 mb-4 mb-lg-0 work-content">
+              <span class="badge bg-success mb-3">Reception Event</span><h3>Elegant Reception Setup</h3>
+              <p>Stylish reception setup with warm lights, floral décor and a premium stage look.</p>
+              <p class="mb-2">Designed for elegant evening celebrations.</p>
+              <a href="#booking" class="btn btn-main mt-3">Book This Style</a>
+            </div>
+            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1000&q=80" class="img-fluid work-img" alt="Reception"></div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#workCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+      <button class="carousel-control-next" type="button" data-bs-target="#workCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="packages"><div class="container text-center"><h2 class="section-title">Our Packages</h2><div class="row g-4"><div class="col-md-4"><div class="package-card"><h3>Basic Package</h3><p class="price">₹19,999</p><p>Best for small birthdays and simple decorations.</p><hr><p>✔ Basic Decoration</p><p>✔ Balloon Setup</p><p>✔ Basic Lighting</p><p>✔ Event Support</p><a href="#booking" class="btn btn-main mt-3">Choose Plan</a></div></div><div class="col-md-4"><div class="package-card"><span class="badge bg-danger mb-2">Popular</span><h3>Premium Package</h3><p class="price">₹49,999</p><p>Best for weddings, receptions and premium parties.</p><hr><p>✔ Premium Decoration</p><p>✔ Photography</p><p>✔ Lighting & Sound</p><p>✔ Full Event Support</p><a href="#booking" class="btn btn-main mt-3">Choose Plan</a></div></div><div class="col-md-4"><div class="package-card"><h3>Luxury Package</h3><p class="price">₹99,999</p><p>Best for grand weddings and large events.</p><hr><p>✔ Luxury Decoration</p><p>✔ Photography & Video</p><p>✔ Catering Support</p><p>✔ Complete Management</p><a href="#booking" class="btn btn-main mt-3">Choose Plan</a></div></div></div></div></section>
+<section class="py-5 bg-white"><div class="container"><div class="highlight text-center"><h2 class="fw-bold">Planning an Event Soon?</h2><p>Book your event consultation today and get a custom plan based on your budget.</p><a href="#booking" class="btn btn-light rounded-pill px-4">Get Free Consultation</a></div></div></section>
+<section class="py-5" id="reviews"><div class="container"><h2 class="section-title text-center">What Our Clients Say</h2><div class="row g-4"><div class="col-md-4"><div class="review-card"><h5>⭐⭐⭐⭐⭐</h5><p>They made our wedding decoration beautiful and stress-free.</p><h6>- Priya Sharma</h6></div></div><div class="col-md-4"><div class="review-card"><h5>⭐⭐⭐⭐⭐</h5><p>Best event management team. Very professional and creative.</p><h6>- Rahul Kumar</h6></div></div><div class="col-md-4"><div class="review-card"><h5>⭐⭐⭐⭐⭐</h5><p>The birthday decor was amazing. Everyone loved the theme.</p><h6>- Anusha</h6></div></div></div></div></section>
+<section class="py-5 bg-white" id="booking"><div class="container"><h2 class="section-title text-center">Book Your Event</h2><div class="row g-4 align-items-center"><div class="col-md-6"><div class="booking-box"><h4 class="mb-4">Send Booking Enquiry</h4><form><input type="text" class="form-control mb-3" placeholder="Your Name"><input type="tel" class="form-control mb-3" placeholder="Phone Number"><select class="form-select mb-3"><option selected>Select Event Type</option><option>Wedding</option><option>Birthday Party</option><option>Corporate Event</option><option>Reception</option><option>Decoration Only</option></select><input type="date" class="form-control mb-3"><select class="form-select mb-3"><option selected>Select Budget Range</option><option>Below ₹20,000</option><option>₹20,000 - ₹50,000</option><option>₹50,000 - ₹1,00,000</option><option>Above ₹1,00,000</option></select><textarea class="form-control mb-3" rows="4" placeholder="Tell us about your event"></textarea><button type="button" class="btn btn-main">Submit Enquiry</button></form></div></div><div class="col-md-6"><div class="booking-box"><h4>Contact Details</h4><p><b>Address:</b> 123, Event Street, Rajahmundry</p><p><b>Phone:</b> +91 98765 43210</p><p><b>Email:</b> info@dreamevents.com</p><p><b>Timing:</b> 9:00 AM - 9:00 PM</p><iframe src="https://www.google.com/maps?q=Rajahmundry&output=embed" width="100%" height="230" style="border:0;" class="rounded-3" loading="lazy"></iframe><a href="https://www.google.com/maps?q=Rajahmundry" target="_blank" class="btn btn-main mt-3">📍 Get Directions</a></div></div></div></div></section>
+<section class="py-5" id="contact"><div class="container text-center"><h2 class="section-title">Why Choose Dream Events?</h2><div class="row g-4"><div class="col-md-3 col-6"><div class="card-box"><h3 class="text-danger fw-bold">500+</h3><p>Events Completed</p></div></div><div class="col-md-3 col-6"><div class="card-box"><h3 class="text-danger fw-bold">100%</h3><p>Client Satisfaction</p></div></div><div class="col-md-3 col-6"><div class="card-box"><h3 class="text-danger fw-bold">5+</h3><p>Years Experience</p></div></div><div class="col-md-3 col-6"><div class="card-box"><h3 class="text-danger fw-bold">24/7</h3><p>Event Support</p></div></div></div></div></section>
+<footer class="footer"><div class="container"><div class="row g-4"><div class="col-md-4"><h4>Dream Events</h4><p>We create beautiful and memorable events with professional planning and creative decoration.</p></div><div class="col-md-4"><h5>Quick Links</h5><a href="#home">Home</a><a href="#services">Services</a><a href="#gallery">Our Work</a><a href="#packages">Packages</a><a href="#booking">Booking</a></div><div class="col-md-4"><h5>Contact Us</h5><p>+91 98765 43210</p><p>info@dreamevents.com</p><p>Rajahmundry, Andhra Pradesh</p></div></div><hr><p class="text-center mb-0">© 2026 Dream Events. All Rights Reserved.</p></div></footer>
+<a href="#home" class="top-btn">↑</a><a href="https://wa.me/919999999999" class="whatsapp">☏</a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const navLinks=document.querySelectorAll('.nav-link');
+  navLinks.forEach(link=>{
+    link.addEventListener('click',()=>{
+      navLinks.forEach(item=>item.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

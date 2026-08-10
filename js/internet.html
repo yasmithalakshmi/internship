@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Internet Speed Checker</h2>
+    <p>Enter the internet speed in Mbps.</p>
+    <script>
+        let net = parseFloat(prompt("Enter the internet speed (Mbps)"));
+        if (net > 100) {
+            alert("Excellent");
+        }
+         else if (net >= 50 && net <= 100) {
+            alert("Good");
+        }
+        else if (net < 50 && net >= 20) {
+            alert("Average");
+        }
+        else {
+            alert("Poor");
+        }
+    </script>
+</body>
+</html>

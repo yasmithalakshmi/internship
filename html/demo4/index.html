@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Rankers Academy</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7ff;
+    color:#06163b;
+}
+
+.navbar{
+    background:rgba(6,22,59,.85);
+    backdrop-filter:blur(14px);
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+.navbar-brand{
+    color:#ffd700!important;
+    font-size:28px;
+    font-weight:800;
+}
+
+.nav-link{
+    color:white!important;
+    margin:0 8px;
+    font-weight:600;
+}
+
+.nav-link:hover{
+    color:#ffd700!important;
+}
+
+.join-btn{
+    background:#ffd700;
+    color:#06163b!important;
+    border-radius:30px;
+    padding:10px 24px!important;
+}
+
+.hero{
+    min-height:100vh;
+    background:
+    linear-gradient(135deg,rgba(6,22,59,.92),rgba(20,60,153,.75)),
+    url("https://images.unsplash.com/photo-1523240795612-9a054b0db644");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    background:#ffd70033;
+    border-radius:50%;
+    top:130px;
+    right:80px;
+    animation:float 4s infinite;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:#ffffff20;
+    border-radius:50%;
+    bottom:80px;
+    left:60px;
+    animation:float 5s infinite;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    font-size:62px;
+    font-weight:800;
+    line-height:1.2;
+}
+
+.hero p{
+    font-size:20px;
+    margin:22px 0;
+    color:#f1f1f1;
+}
+
+.gold{
+    color:#ffd700;
+}
+
+.btn-gold{
+    background:#ffd700;
+    color:#06163b;
+    font-weight:700;
+    border-radius:30px;
+    padding:12px 34px;
+    transition:.3s;
+}
+
+.btn-gold:hover{
+    background:white;
+    color:#06163b;
+    transform:scale(1.05);
+}
+
+.btn-outline-custom{
+    border:2px solid white;
+    color:white;
+    border-radius:30px;
+    padding:12px 34px;
+    font-weight:700;
+    margin-left:10px;
+}
+
+.btn-outline-custom:hover{
+    background:white;
+    color:#06163b;
+}
+
+.title{
+    text-align:center;
+    font-size:38px;
+    font-weight:800;
+    margin:65px 0 40px;
+    color:#06163b;
+}
+
+.box{
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 12px 35px rgba(0,0,0,.12);
+    transition:.4s;
+    height:100%;
+}
+
+.box:hover{
+    transform:translateY(-12px) scale(1.02);
+}
+
+.stats h2{
+    color:#ffd700;
+    font-weight:800;
+}
+
+.course-card{
+    min-height:310px;
+    padding:35px;
+    border-radius:25px;
+    color:white;
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.course-card:hover{
+    transform:translateY(-12px);
+}
+
+.course-card h2{
+    font-weight:800;
+    margin-bottom:18px;
+}
+
+.course-card p{
+    margin-bottom:8px;
+}
+
+.iit{
+    background:linear-gradient(135deg,#07318d,#1d5cff);
+}
+
+.neet{
+    background:linear-gradient(135deg,#009b65,#02c987);
+}
+
+.foundation{
+    background:linear-gradient(135deg,#6b28c9,#9b5cff);
+}
+
+.live{
+    background:linear-gradient(135deg,#06163b,#143c99);
+    color:white;
+    border-radius:30px;
+    padding:45px;
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.icon{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.faculty-card img{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #ffd700;
+    margin-bottom:15px;
+}
+
+.gallery-slider{
+    overflow:hidden;
+    border-radius:25px;
+}
+
+.gallery-track{
+    display:flex;
+    gap:25px;
+    width:max-content;
+    animation:slide 18s linear infinite;
+}
+
+.gallery-track img{
+    width:350px;
+    height:250px;
+    object-fit:cover;
+    border-radius:25px;
+    box-shadow:0 10px 25px #0003;
+}
+
+@keyframes slide{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+.gallery-track:hover{
+    animation-play-state:paused;
+}
+
+.rating{
+    background:linear-gradient(135deg,#06163b,#143c99);
+    color:white;
+    padding:55px;
+    border-radius:30px;
+    text-align:center;
+}
+
+.star{
+    font-size:40px;
+    color:#ffd700;
+}
+
+.form-box{
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 10px 30px #0003;
+}
+
+input,select,textarea{
+    border-radius:15px!important;
+    padding:13px!important;
+}
+
+.submit{
+    background:#06163b;
+    color:white;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:30px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.submit:hover{
+    background:#ffd700;
+    color:#06163b;
+}
+
+footer{
+    background:#06163b;
+    color:white;
+    padding:55px 0 25px;
+}
+
+footer h4{
+    color:#ffd700;
+    font-weight:700;
+}
+
+footer p,a{
+    color:#e8e8e8;
+    text-decoration:none;
+}
+
+footer a:hover{
+    color:#ffd700;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.2);
+    margin-top:30px;
+    padding-top:20px;
+    text-align:center;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(-25px);
+    }
+}
+
+@media(max-width:768px){
+    .hero{
+        text-align:center;
+        padding-top:90px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .btn-outline-custom{
+        margin-left:0;
+        margin-top:12px;
+    }
+
+    .title{
+        font-size:30px;
+    }
+
+    .gallery-track img{
+        width:270px;
+        height:200px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+<div class="container">
+<a class="navbar-brand" href="#home">Future Rankers</a>
+
+<button class="navbar-toggler bg-light" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+<ul class="navbar-nav ms-auto">
+<li><a class="nav-link" href="#home">Home</a></li>
+<li><a class="nav-link" href="#courses">Courses</a></li>
+<li><a class="nav-link" href="#dashboard">Dashboard</a></li>
+<li><a class="nav-link" href="#why">Why Us</a></li>
+<li><a class="nav-link" href="#faculty">Faculty</a></li>
+<li><a class="nav-link" href="#gallery">Gallery</a></li>
+<li><a class="nav-link" href="#contact">Contact</a></li>
+<li><a class="join-btn nav-link" href="#admission">Join Now</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<section class="hero" id="home">
+<div class="container hero-content">
+<div class="row align-items-center">
+<div class="col-lg-7">
+<h1>
+Build Your Future With 
+<span class="gold">Future Rankers</span>
+<br>
+IIT JEE • NEET Academy
+</h1>
+
+<p>
+A modern coaching academy template for entrance exam preparation, online tests, study material and student progress tracking.
+</p>
+
+<a href="#admission" class="btn btn-gold">Join Now</a>
+<a href="#courses" class="btn btn-outline-custom">View Courses</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="container py-5 stats">
+<div class="row g-4 text-center">
+
+<div class="col-md-3 col-6">
+<div class="box">
+<h2>1000+</h2>
+<p>Students</p>
+</div>
+</div>
+
+<div class="col-md-3 col-6">
+<div class="box">
+<h2>50+</h2>
+<p>Faculty</p>
+</div>
+</div>
+
+<div class="col-md-3 col-6">
+<div class="box">
+<h2>20+</h2>
+<p>Courses</p>
+</div>
+</div>
+
+<div class="col-md-3 col-6">
+<div class="box">
+<h2>4.9★</h2>
+<p>Rating</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="container" id="courses">
+<h2 class="title">Our Courses</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+<div class="course-card iit">
+<h2>IIT JEE</h2>
+<p>✔ Main & Advanced</p>
+<p>✔ Physics, Chemistry, Maths</p>
+<p>✔ Weekly Mock Tests</p>
+<p>✔ Doubt Solving Sessions</p>
+<p>✔ Complete Study Material</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="course-card neet">
+<h2>NEET</h2>
+<p>✔ Medical Entrance Coaching</p>
+<p>✔ Biology, Physics, Chemistry</p>
+<p>✔ Daily Practice Questions</p>
+<p>✔ Test Series</p>
+<p>✔ Performance Tracking</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="course-card foundation">
+<h2>Foundation</h2>
+<p>✔ Class 8 - 10</p>
+<p>✔ Maths & Science Basics</p>
+<p>✔ Olympiad Preparation</p>
+<p>✔ Concept Building</p>
+<p>✔ Academic Support</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="container" id="dashboard">
+<h2 class="title">Student Dashboard</h2>
+
+<div class="row g-4 text-center">
+
+<div class="col-md-3 col-6">
+<div class="box">
+<div class="icon">📚</div>
+<h5>Study Material</h5>
+</div>
+</div>
+
+<div class="col-md-3 col-6">
+<div class="box">
+<div class="icon">🔴</div>
+<h5>Live Classes</h5>
+</div>
+</div>
+
+<div class="col-md-3 col-6">
+<div class="box">
+<div class="icon">📝</div>
+<h5>Online Tests</h5>
+</div>
+</div>
+
+<div class="col-md-3 col-6">
+<div class="box">
+<div class="icon">📊</div>
+<h5>Progress Report</h5>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="container py-5">
+<div class="live text-center">
+<h2>Live Classes & Tests</h2>
+<p>Daily live lectures, mock exams, practice sessions and doubt clarification for students.</p>
+<a href="#admission" class="btn btn-gold mt-2">Start Learning</a>
+</div>
+</section>
+
+<section class="container" id="why">
+<h2 class="title">Why Choose Us</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+<div class="box text-center">
+<div class="icon">🎯</div>
+<h5>Expert Faculty</h5>
+<p>Experienced teachers for strong concept clarity.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="box text-center">
+<div class="icon">📚</div>
+<h5>Study Material</h5>
+<p>Well-structured notes and practice questions.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="box text-center">
+<div class="icon">📝</div>
+<h5>Weekly Tests</h5>
+<p>Regular tests to improve speed and accuracy.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="box text-center">
+<div class="icon">💬</div>
+<h5>Doubt Sessions</h5>
+<p>Special doubt solving support for students.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="box text-center">
+<div class="icon">📊</div>
+<h5>Progress Tracking</h5>
+<p>Track student performance with reports.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="box text-center">
+<div class="icon">🏆</div>
+<h5>Result Focused</h5>
+<p>Focused learning path for competitive exams.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="container" id="faculty">
+<h2 class="title">Expert Faculty</h2>
+
+<div class="row text-center g-4">
+
+<div class="col-md-4">
+<div class="box faculty-card">
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<h5>Physics Expert</h5>
+<p>Concept-based learning and numerical practice.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="box faculty-card">
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+<h5>Chemistry Expert</h5>
+<p>Organic, inorganic and physical chemistry support.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="box faculty-card">
+<img src="https://randomuser.me/api/portraits/men/65.jpg">
+<h5>Maths Expert</h5>
+<p>Problem-solving methods for entrance exams.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="container py-5" id="gallery">
+<h2 class="title">Campus Gallery</h2>
+
+<div class="gallery-slider">
+<div class="gallery-track">
+
+<img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b">
+<img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a">
+<img src="https://images.unsplash.com/photo-1509062522246-3755977927d7">
+<img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f">
+<img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644">
+
+<img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b">
+<img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a">
+<img src="https://images.unsplash.com/photo-1509062522246-3755977927d7">
+
+</div>
+</div>
+</section>
+
+<section class="container py-5">
+<div class="rating">
+<h2>Institute Rating</h2>
+<div class="star">★★★★★</div>
+<h3>4.9 / 5</h3>
+<p>Sample rating section for academy template</p>
+</div>
+</section>
+
+<section class="container">
+<h2 class="title">Student Reviews</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+<div class="box">
+<h4>⭐⭐⭐⭐⭐</h4>
+<p>“Excellent teaching and clear explanation.”</p>
+<h6>- Sample Student</h6>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="box">
+<h4>⭐⭐⭐⭐⭐</h4>
+<p>“Best coaching template for entrance exam academy.”</p>
+<h6>- Sample Student</h6>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="box">
+<h4>⭐⭐⭐⭐⭐</h4>
+<p>“Helpful dashboard, tests and practice support.”</p>
+<h6>- Sample Student</h6>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="container py-5">
+<div class="live text-center">
+<h2>Admissions Open 2026</h2>
+<p>Limited seats available for IIT JEE, NEET and Foundation batches.</p>
+<a href="#admission" class="btn btn-gold">Apply Now</a>
+</div>
+</section>
+
+<section class="container py-5" id="admission">
+<h2 class="title">Admission Form</h2>
+
+<div class="form-box">
+<input class="form-control mb-3" placeholder="Student Name">
+<input class="form-control mb-3" placeholder="Mobile Number">
+<input class="form-control mb-3" placeholder="Email">
+
+<select class="form-control mb-3">
+<option>Select Course</option>
+<option>IIT JEE</option>
+<option>NEET</option>
+<option>Foundation</option>
+</select>
+
+<textarea class="form-control mb-3" rows="4" placeholder="Message"></textarea>
+
+<button class="submit">Submit Admission</button>
+</div>
+</section>
+
+<section class="container py-5" id="contact">
+<div class="box">
+<h2>Contact Us</h2>
+<p>📞 +91 98765 43210</p>
+<p>📧 futurerankers@gmail.com</p>
+<p>📍 Coaching Center Address</p>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<div class="row g-4">
+
+<div class="col-md-4">
+<h4>Future Rankers Academy</h4>
+<p>A professional academy website template for IIT JEE, NEET and Foundation coaching institutes.</p>
+</div>
+
+<div class="col-md-4">
+<h4>Quick Links</h4>
+<p><a href="#home">Home</a></p>
+<p><a href="#courses">Courses</a></p>
+<p><a href="#faculty">Faculty</a></p>
+<p><a href="#admission">Admission</a></p>
+</div>
+
+<div class="col-md-4">
+<h4>Contact</h4>
+<p>📞 +91 98765 43210</p>
+<p>📧 futurerankers@gmail.com</p>
+<p>📍 Coaching Center Address</p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+<p>Your Success Our Mission 🏆</p>
+</div>
+
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

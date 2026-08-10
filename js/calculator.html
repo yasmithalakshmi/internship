@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator app</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+         const display = document.getElementById('display');
+        function calculate() {
+             const display = document.getElementById('display');
+            try {
+                display.value = eval(display.value);
+            } catch (e) {
+                display.value = 'Error';
+            }
+        }
+
+        function squareroot() {
+            display.value = Math.sqrt(display.value);
+        }
+        function square() {
+            display.value = display.value ** 2;
+        }
+        function power() {
+           let x = parseFloat(prompt("Enter base"));
+           let y = parseFloat(prompt("Enter power"));
+
+            display.value = Math.pow(x, y);
+        }
+        function toggleSign() {
+            display.value = display.value * -1;
+        }
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+        function deleteLast() {
+            const display = document.getElementById('display');
+            display.value = display.value.slice(0, -1);
+        }
+        function appendToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+        document.addEventListener('DOMContentLoaded', setupButtons);
+        function setupKeyboard() {
+            document.addEventListener('keydown', (event) => {
+                const allowedKeys = '0123456789+-*/.%';
+                if (allowedKeys.includes(event.key)) {
+                    appendToDisplay(event.key);
+                } else if (event.key === 'Enter') {
+                    calculate();
+                } else if (event.key === 'Backspace') {
+                    deleteLast();
+                } else if (event.key === 'Escape') {
+                    clearDisplay();
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', setupKeyboard);
+    </script>
+       
+        
+    </style>
+</head>
+<body>
+   <div class="container-fluid"> 
+    <nav class="navbar bg-body-secondary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+        <h1>Calculator </h1>
+
+    </a>
+  </div>
+</nav>
+    <div class="container-fluid mt-5">
+    <div class="row justify-content-cover align-items-center">
+        <div class="col-md-4">
+
+            <!-- Display -->
+            <input type="text" id="display" class="form-control text-end mb-3 fs-3" readonly>
+
+            <!-- Buttons -->
+            <div class="row g-2">
+
+                <div class="col-3">
+                    <button class="btn btn-danger w-100" onclick="clearDisplay()">C</button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-warning w-100" onclick="deleteLast()">DEL</button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-secondary w-100" onclick="appendToDisplay('%')">%</button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-secondary w-100" onclick="appendToDisplay('/')">/</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light w-100" onclick="squareroot()" >√</button>
+               </div>
+
+               <div class="col-3">
+                    <button class="btn btn-light w-100" onclick="square()">x²</button>
+               </div>
+
+               <div class="col-3">
+                    <button class="btn btn-light w-100" onclick="power()">xʸ</button>
+               </div>
+
+               <div class="col-3">
+                    <button class="btn btn-light w-100" onclick="toggleSign()">±</button>
+               </div>
+
+                <div class="col-3">
+                    <button class="btn btn-light w-100" onclick="appendToDisplay('7')">7</button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-light w-100" onclick="appendToDisplay(8)">8</button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-light w-100" onclick="appendToDisplay('9')">9</button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-secondary w-100" onclick="appendToDisplay('*')"> * </button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-light w-100" onclick="appendToDisplay('4')">4</button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-light w-100" onclick="appendToDisplay('5')">5</button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-light w-100" onclick="appendToDisplay('6')">6</button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-secondary w-100" onclick="appendToDisplay('-')">-</button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-light w-100" onclick="appendToDisplay('1')">1</button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-light w-100" onclick="appendToDisplay('2')">2</button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-light w-100" onclick="appendToDisplay('3')">3</button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-secondary w-100" onclick="appendToDisplay('+')">+</button>
+                </div>
+
+                <div class="col-6">
+                    <button class="btn btn-light w-100" onclick="appendToDisplay('0')">0</button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-light w-100" onclick="appendToDisplay('.')">.</button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-success w-100" onclick="calculate()">=</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+   </div>   
+</body>
+</html>

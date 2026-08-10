@@ -1,0 +1,5 @@
+file = open("students.txt", "r")
+print("File name:", file.name)
+print("File mode:", file.mode)
+print("Is closed:", file.closed)
+file.close()

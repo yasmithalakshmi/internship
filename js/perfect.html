@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>perfect numbers</title>
+    <script>
+        function calculatePerfect() {
+            const n = parseInt(document.getElementById('n').value);
+            let sum = 0;
+            for (let i = 1; i < n; i++) {
+                if (n % i === 0) {
+                    sum += i;
+                }
+            }
+            if (sum === n) {
+                document.getElementById('result').innerHTML = n + ' is a perfect number.';
+            } else {
+                document.getElementById('result').innerHTML = n + ' is not a perfect number.';
+            }
+        }
+        </script>
+        <style>
+            .container {
+                width: 400px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #b0a5a5;
+                border-radius: 8px;
+            
+            }
+            .txt-center {
+                text-align: center;
+                font-size: 24px;
+            }
+            .mt-5 {
+                margin-top: 3rem;
+            }
+        </style>
+</head>
+<body>
+    <div class="container txt-center mt-5">
+        <h1>perfect numbers</h1>
+        <label for="n">Enter a number:</label>
+        <input type="number" id="n" placeholder="Enter a number">
+        <br><br>
+        <button onclick="calculatePerfect()">Calculate Perfect Numbers</button>
+        <br><br>
+        <label id="result" class="mt-3"> result</label>
+    </div>
+</body>
+</html>
+            

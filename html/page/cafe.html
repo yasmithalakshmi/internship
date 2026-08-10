@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)http://127.0.0.1:5500/apdistricts/landing%20page/cafe.html#about -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cafe</title>
+    <style>
+        .containor{
+            width: 100%;
+            height: 100vh;
+            background-color: darksalmon;
+
+        }
+        #block1{
+            width: 100%;
+            height: 15vh;
+            background: #5c3b0a;
+            position: relative;
+        }
+        #home{
+            width:100%;
+            height:100vh;
+            background-color: rosybrown;
+        }
+        li{
+             display: inline;
+             padding: 0px;
+        }
+        a{
+            text-decoration: none;
+            font-style: italic;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 1.6rem;
+            color: white;
+            margin-right: 35px;
+        }
+        nav{
+    
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0px 0px;
+           
+        }
+        nav img{
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 0px;
+        }
+        nav ul {
+            display: flex;
+            gap: 0px;
+            margin-top: 30px;
+
+        }
+        #menu{
+            width: 100%;
+            height: 100vh;
+            background-color: beige;
+        }
+        #menu2{
+            width: 100%;
+            height: 1150px;
+            background-color: beige;
+            justify-content: space-around;
+        }
+        .image1{
+            width: 100%;
+            height: 100vh;
+        }
+        .image2{
+            width: 50%;
+            height: 40vh;
+            border-radius: 20px;
+            margin-top: 50px;
+        }
+        .box{
+            width:95% ;
+            height: 100vh;
+            background-color: white;
+            border-radius: 20px;
+            margin-left: 10px;
+            margin-top: 5px;
+            padding-left: 25px;
+            display: flex;
+        }
+        ul li{
+            font-size: 25px;
+        }
+        .block2{
+            width: 100%;
+            height: 70vh;
+            display: flex;
+            justify-content: space-around;
+            padding-top: 30px;
+        }
+        .block3{
+            width: 100%;
+            height: 70vh;
+            display: flex;
+            justify-content: space-around;
+        }
+        .card{
+            width: 25%;
+            height: 67vh;
+            background-color: white;
+            border-radius: 30px;
+            margin-bottom: 10px;
+        }
+        #about{
+            width: 100%;
+            height: 100vh;
+            background: #7b5112;
+        }
+        .block4{
+            width: 100%;
+            height: 70vh;
+            display: flex;
+            justify-content: space-around;
+        }
+        .img{
+            width: 90%;
+            height: 20vh;
+            justify-content: space-around;
+            background-color: blueviolet;
+            border-radius: 10px;
+            margin-top: 10px ;
+            margin-left: 10px;
+        }
+        .pic{
+            width: 100%;
+            height: 20vh;
+        }
+        .footer-box1{
+            width: 100%;
+            height: 30vh;
+        }
+        .footer-box2{
+            width: 100%;
+            height: 50vh;
+            display: flex;
+            justify-content: space-around;
+        }
+        #box{
+            width: 30%;
+            height: 50vh;
+        }
+        button{
+            color: #100f0f;
+            background-color: rgb(213, 140, 44);
+        }
+       button:hover{
+          background-color: beige ;
+          transform: 1s;
+       }
+        
+    </style>
+</head>
+<body>
+    <div class="containor">
+        <section id="block1">
+           <nav>
+            <img src="data:image/webp;base64,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" alt="logo" class="logo">
+           <h1> .....cafee.....</h1>
+            <ul>
+            <li><a href="http://127.0.0.1:5500/apdistricts/landing%20page/cafe.html#home">home</a></li>
+            <li><a href="http://127.0.0.1:5500/apdistricts/landing%20page/cafe.html#menu">menu</a></li>
+            <li><a href="http://127.0.0.1:5500/apdistricts/landing%20page/cafe.html#about">about</a></li>
+            </ul>
+           </nav>
+        </section>
+        <section id="home">
+            <img src="./cafe_files/image1.png" alt="image1" class="image1">
+        </section>
+        <section id="menu">
+        <h1> 𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓒𝓪𝓯𝓮 ☕</h1>
+
+           <p>𝒜 𝓅𝑒𝓇𝒻𝑒𝒸𝓉 𝓅𝓁𝒶𝒸𝑒 𝓉𝑜 𝓇𝑒𝓁𝒶𝓍, 𝓇𝑒𝒻𝓇𝑒𝓈𝒽, 𝒶𝓃𝒹 𝑒𝓃𝒿𝑜𝓎 𝒹𝑒𝓁𝒾𝒸𝒾𝑜𝓊𝓈 𝒻𝓁𝒶𝓋𝑜𝓇𝓈.
+            𝒲𝒾𝓉𝒽 𝒶 𝒸𝑜𝓏𝓎 𝒶𝓉𝓂𝑜𝓈𝓅𝒽𝑒𝓇𝑒, 𝒻𝓇𝑒𝓈𝒽𝓁𝓎 𝒷𝓇𝑒𝓌𝑒𝒹 𝒸𝑜𝒻𝒻𝑒𝑒, 𝒶𝓃𝒹 𝓉𝒶𝓈𝓉𝓎 𝓈𝓃𝒶𝒸𝓀𝓈, 𝑒𝓋𝑒𝓇𝓎 𝓋𝒾𝓈𝒾𝓉 𝒷𝑒𝒸𝑜𝓂𝑒𝓈 𝒶 𝓂𝑒𝓂𝑜𝓇𝒶𝒷𝓁𝑒 𝑒𝓍𝓅𝑒𝓇𝒾𝑒𝓃𝒸𝑒.
+            𝒮𝓅𝑒𝓃𝒹 𝓆𝓊𝒶𝓁𝒾𝓉𝓎 𝓉𝒾𝓂𝑒 𝓌𝒾𝓉𝒽 𝒻𝓇𝒾𝑒𝓃𝒹𝓈 𝒶𝓃𝒹 𝒻𝒶𝓂𝒾𝓁𝓎 𝓌𝒽𝒾𝓁𝑒 𝑒𝓃𝒿𝑜𝓎𝒾𝓃𝑔 𝒸𝑜𝓂𝒻𝑜𝓇𝓉, 𝒽𝒶𝓅𝓅𝒾𝓃𝑒𝓈𝓈, 𝒶𝓃𝒹 𝑔𝓇𝑒𝒶𝓉 𝓉𝒶𝓈𝓉𝑒 𝒾𝓃 𝑒𝓋𝑒𝓇𝓎 𝓂𝑜𝓂𝑒𝓃𝓉.
+          </p>
+           <h3>✨ “𝒜 𝒸𝓊𝓅 𝑜𝒻 𝒸𝑜𝒻𝒻𝑒𝑒, 𝒶 𝓅𝑒𝒶𝒸𝑒𝒻𝓊𝓁 𝓋𝒾𝒷𝑒,
+                𝒜 𝓅𝓁𝒶𝒸𝑒 𝓌𝒽𝑒𝓇𝑒 𝒽𝒶𝓅𝓅𝒾𝓃𝑒𝓈𝓈 𝒸𝑜𝓂𝑒𝓈 𝒶𝓁𝒾𝓋𝑒.” ☕
+            </h3>
+
+           <div class="box">
+            <img src="./cafe_files/image2.png" alt="image2" class="image2">
+            <ul>
+                
+            <h2>✦  ☕ 𝓢𝓹𝓮𝓬𝓲𝓪𝓵 𝓘𝓽𝓮𝓶 𝓲𝓷 𝓸𝓾𝓻 𝓒𝓪𝓯é ☕  ✦</h2>
+
+               <li>✨Freshly brewed happiness in every cup.</li><br>
+
+              <li> 🤎Our signature delight for your perfect mood.</li><br>
+
+               <li> 🌿Where flavor meets comfort.</li><br>
+
+               <li>🍫A cup full of magic and aroma.</li><br>
+            </ul>
+           </div>
+        </section>
+        <section id="menu2">
+             <h1 align="center">✦ ━━━━ ☕ 𝓒𝓪𝓯é 𝓜𝓮𝓷𝓾 𝓘𝓽𝓮𝓶𝓼 ☕ ━━━━ ✦</h1>
+           <div class="block2">
+               <div class="card">
+                 <div class="img">
+                     <img src="./cafe_files/img1.png" alt="caramal latte" class="pic">
+                     <h4>☕ Caramel Latte</h4>
+                      <p>Smooth espresso blended with creamy milk and rich caramel flavor.
+                     </p><h4>💰 ₹199</h4><p></p>
+                     <button>order now</button>
+                 </div>
+
+               </div>
+               <div class="card">
+                 <div class="img">
+                    <img src="./cafe_files/image2.png" alt="cappuccino" class="pic">
+                    <h4>☕ Classic Cappuccino</h4> 
+                    <p>Freshly brewed coffee topped with silky milk foam and rich aroma.
+                    </p><h4>💰 ₹189</h4>  <p></p>  
+                    <button>order now</button>          
+                  </div>
+               </div>
+               <div class="card">
+                 <div class="img">
+                    <img src="./cafe_files/img2.png" alt="chocolate mocha" class="pic">
+                    <h4>🍫 Chocolate Mocha</h4>
+                   <p>Delicious mix of chocolate and coffee finished with creamy foam.
+                   </p><h4>💰 ₹229</h4><p></p>
+                   <button>order now</button>
+                 </div>
+               </div>
+           </div>
+           <div class="block3">
+            <div class="card">
+                <div class="img">
+                    <img src="./cafe_files/img3.png" alt="🧋 Cold Coffee Delight" class="pic">
+                   <h4> 🧋 Cold Coffee Delight</h4>
+                   <p>Refreshing chilled coffee served with ice cream and chocolate drizzle.
+                   </p><h4>💰 ₹179</h4><p></p>
+                   <button>order now</button>
+              </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                     <img src="./cafe_files/img4.png" alt="🍓 Strawberry Milkshake" class="pic">
+                     <h4>🍓 Strawberry Milkshake</h4>
+                     <p>Sweet and creamy strawberry shake made with fresh milk and fruits.
+                     </p><h4>💰 ₹169</h4><p></p>
+                     <button>order now</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="./cafe_files/img5.png" alt="🍰 Black Forest Cake" class="pic">
+                    <h4>🍰 Black Forest Cake</h4>
+                    <p>Soft chocolate cake layered with cream and rich chocolate flakes.
+                    </p><h4>💰 ₹149</h4><p></p> 
+                    <button>order now</button>
+                </div>
+            </div>
+           </div>
+           <div class="block4">
+             <div class="card">
+                <div class="img">
+                   <img src="./cafe_files/img6.png" alt="🥪 Grilled Sandwich Combo" class="pic">
+                 <h4>🥪 Grilled Sandwich Combo</h4>
+                 <p>Crispy grilled sandwich served with tasty fillings and flavors.
+                 </p><h4>💰 ₹159</h4><p></p>
+                 <button>order now</button>
+                </div>
+             </div>
+             <div class="card">
+                <div class="img">
+                    <img src="./cafe_files/img7.png" alt="🍪 Choco Chip Cookies" class="pic">
+                   <h4> 🍪 Choco Chip Cookies</h4>
+                   <p>Freshly baked cookies loaded with crunchy chocolate chips.
+                  </p><h4>💰 ₹99</h4><p></p>
+                  <button>order now</button>
+                </div>
+             </div>
+             <div class="card">
+                <div class="img">
+                    <img src="./cafe_files/img8.png" alt="🧁 Vanilla Cream Muffin" class="pic">
+                    <h4>🧁 Vanilla Cream Muffin</h4>
+                    <p>Soft vanilla muffin filled with smooth creamy flavor in every bite.
+                     </p><h4>💰 ₹119</h4><p></p>
+                     <button>order now</button>
+                </div>
+             </div>
+           </div>
+        </section> 
+        <section id="about">
+            <footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- Cafe Details -->
+        <div class="footer-box1">
+            <h2>☕ about Café</h2>
+
+            <p>
+                Serving freshly brewed coffee, delicious desserts, 
+                and cozy moments for every customer.
+            </p><p>thank you... visit us again.....</p>
+        </div>
+
+
+        <!-- Contact Details -->
+        <div class="footer-box2">
+            <div id="box">
+            <h3>Contact Us</h3>
+
+            <p>📍 Rajahmundry, Andhra Pradesh</p>
+            <p>📞 +91 98765 43210</p>
+
+            <p>📧 thaycafe@gmail.com</p>
+            </div>
+
+
+        <!-- Opening Time -->
+        <div id="box">
+            <h3>Opening Hours</h3>
+
+            <p>Monday - Friday : 9AM - 10PM</p>
+
+            <p>Saturday : 10AM - 11PM</p>
+
+            <p>Sunday : 10AM - 9PM</p>
+        </div>
+
+
+        <!-- Social Media -->
+        <div id="box">
+            <h3>Follow Us</h3>
+
+            <a href="http://127.0.0.1:5500/apdistricts/landing%20page/cafe.html#">Instagram</a><br>
+
+            <a href="http://127.0.0.1:5500/apdistricts/landing%20page/cafe.html#">Facebook</a><br>
+
+            <a href="http://127.0.0.1:5500/apdistricts/landing%20page/cafe.html#">YouTube</a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <p class="copyright">
+        © 2026 Thay Café | All Rights Reserved
+    </p>
+
+</footer>
+        </section> 
+ </div>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

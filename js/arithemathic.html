@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithematic Operators</title>
+    <script>
+        function calculate() {
+            let x = parseFloat(document.getElementById("firstNumber").value);
+            let y = parseFloat(document.getElementById("secondNumber").value);
+            let sum = x + y;
+            let difference = x - y;
+            let product = x * y;
+            let quotient = x / y;
+            let remainder = x % y;
+         alert(
+            "Sum: " + sum +
+            "\nDifference: " + difference +
+            "\nProduct: " + product +
+            "\nQuotient: " + quotient +
+            "\nRemainder: " + remainder
+        );
+    }
+</script>
+</head>
+<body>
+    <h1>Arithematic Operators</h1>
+    <label for="firstNumber">First Number:</label>
+    <input type="number" id="firstNumber">
+    <label for="secondNumber">Second Number:</label>
+    <input type="number" id="secondNumber">
+    <button onclick="calculate()">Calculate</button>
+</body>
+</html>

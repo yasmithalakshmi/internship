@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>summ of n</title>
+    <script>
+        function calculateSum() {
+            const n = parseInt(document.getElementById('n').value);
+            let sum = 0;
+            for (let i = 1; i <= n; i++) {
+                sum += i;
+            }
+            document.getElementById('result').innerHTML = sum;
+
+        }
+        </script>
+        <style>
+            .container {
+                width: 400px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #b0a5a5;
+                border-radius: 8px;
+            
+            }
+            .txt-center {
+                text-align: center;
+                font-size: 24px;
+            }
+            
+        </style>
+</head>
+<body style="background-color: rgb(219, 237, 238);">
+    <div class="container txt-center mt-5">
+        <h1>Sum of n numbers</h1>
+        <label for="n">Enter a number:</label>
+        <input type="number" id="n" placeholder="Enter a number">
+        <br><br>
+        <button onclick="calculateSum()">Calculate Sum</button>
+        <br><br>
+        <label id="result" class="mt-3"> result</label>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #product{
+            width: 50%;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+      function generateBill(){
+
+    let pname = document.getElementById("productName").value;
+    let qty = document.getElementById("quantity").value;
+    let price = document.getElementById("price").value;
+
+    let total = qty * price;
+    let gst = total * 0.18;
+    let amount = total + gst;
+    alert(
+        "Product Name : " + pname +
+        "\nQuantity : " + qty +
+        "\nPrice : ₹" + price +
+        "\nTotal : ₹" + total +
+        "\nGST (18%) : ₹" + gst +
+        "\nAmount : ₹" + amount
+    );
+
+    document.getElementById("pname").innerHTML = pname;
+    document.getElementById("pqty").innerHTML = qty;
+    document.getElementById("pprice").innerHTML = "₹ " + price;
+    document.getElementById("total").innerHTML = "₹ " + total;
+    document.getElementById("gst").innerHTML = "₹ " + gst;
+    document.getElementById("amount").innerHTML = "₹ " + amount;
+
+}
+    </script>
+</head>
+<body style="background-color: rgb(235, 236, 237);">
+    <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid bg-primary">
+    <span class="navbar-text text-white playfair h2 ">
+      Super Market Billing App
+    </span>
+  </div>
+</nav>
+<div class="row g-3">
+  <div class="col-sm-7">
+     <span class="navbar-text text-dark playfair h3" style="margin-bottom: 100px;">
+      Add Product Details:
+    </span>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Product Name</label>
+    <input type="text" class="form-control" id="productName" placeholder="Enter Product Name"  style="width: 300px;>
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Quantity</label>
+    <input type="number" class="form-control" id="quantity" placeholder="Enter Quantity"  style="width: 300px;>
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Price</label>
+    <input type="number" class="form-control" id="price" placeholder="Enter Price" style="width: 300px;">
+</div>
+
+<button class="btn btn-primary" onclick="generateBill()" style="width: 150px;">
+    Generate Bill
+</button>
+ <table border="1" cellpadding="10" cellspacing="0" width="200">
+
+    <tr>
+        <td><b>Product Name:</b></td>
+        <td id="pname"></td>
+    </tr>
+
+    <tr>
+        <td><b>Product Quantity:</b></td>
+        <td id="pqty"></td>
+    </tr>
+
+    <tr>
+        <td><b>Product Price:</b></td>
+        <td id="pprice"></td>
+    </tr>
+
+    <tr>
+        <td><b>total:</b></td>
+        <td id="total"></td>
+
+    <tr>
+        <td><b>GST (18%):</b></td>
+        <td id="gst"></td>
+    </tr>
+
+    <tr>
+        <td><b>Amount:
+
+        </b></td>
+        <td id="amount"></td>
+    </tr>
+
+</table>
+</body>
+</html>

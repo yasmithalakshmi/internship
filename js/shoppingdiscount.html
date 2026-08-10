@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Discount</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 330px;
+        }
+        h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Shopping Discount</h2>
+        <p>₹5000 and above = 20% discount<br>₹3000 and above = 10% discount<br>Below that = No discount</p>
+
+        <label>Enter purchase amount:</label>
+        <input type="number" id="purchaseAmount" placeholder="Enter amount" required>
+        <button onclick="calculateDiscount()">Calculate</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateDiscount() {
+            let purchaseAmount = parseFloat(document.getElementById("purchaseAmount").value);
+            let resultBox = document.getElementById("result");
+            resultBox.innerHTML = "";
+
+            let message = document.createElement("p");
+
+            if (purchaseAmount >= 5000) {
+                let discount = purchaseAmount * 0.2;
+                let finalAmount = purchaseAmount - discount;
+                message.textContent = `You get a 20% discount. Final amount to pay: ₹${finalAmount}`;
+            } else if (purchaseAmount >= 3000) {
+                let discount = purchaseAmount * 0.1;
+                let finalAmount = purchaseAmount - discount;
+                message.textContent = `You get a 10% discount. Final amount to pay: ₹${finalAmount}`;
+            } else {
+                message.textContent = `No discount. Final amount to pay: ₹${purchaseAmount}`;
+            }
+
+            resultBox.appendChild(message);
+        }
+    </script>
+</body>
+</html>

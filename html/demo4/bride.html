@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hasini Bridal Studio</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+.social-btn{
+    font-size: 24px;
+}
+    .social-icons{
+    display:flex;
+    gap:15px;
+}
+
+.social-btn{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#C8A96B;
+    font-size:24px;
+    text-decoration:none;
+    transition:0.4s;
+}
+
+.social-btn:hover{
+    color:white;
+    transform:translateY(-3px);
+}
+ html{
+    scroll-behavior: smooth;
+ }
+h1,h2,h3,.navbar-brand{
+    font-family: 'Playfair Display', serif;
+}
+body{
+    background-color: rgb(22,0,0);
+    overflow-x: hidden;
+     font-family: 'Poppins', sans-serif;
+}
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+     background: rgba(20,0,0,0.55) !important;
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(200,169,107,0.3);
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand{
+    color: white !important;
+    font-weight: 500;
+}
+
+.navbar .nav-link:hover{
+    color: gold !important;
+}
+
+.logo{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.hero-section::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+}
+.hero{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+.hero-section{
+    position: relative;
+}
+.hero-text,
+.content{
+    position: absolute;
+    z-index:2;
+}
+
+.hero-text{
+    position: absolute;
+    top: 35%;
+    left: 6%;
+    color: white;
+    max-width: 550px;
+}
+
+.hero-text h1{
+    font-size: 55px;
+    font-family: serif;
+}
+
+.hero-text p{
+    font-size: 20px;
+    color: #f8f4ee;
+}
+ nav a:hover{
+    text-decoration:underline;
+    color: #C8A96B !important;
+
+}
+.content{
+    position: absolute;
+    bottom: 12%;
+    left: 6%;
+}
+
+#btn1{
+    background-color: #C8A96B;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+}
+
+#btn2{
+    border: 1px solid white;
+    color: white;
+    padding: 10px 20px;
+}
+#btn1:hover,
+.book-btn:hover,
+.package-btn:hover{
+    background:white;
+    color:#2e041c;
+}
+
+
+.services,
+.choose-us,
+.gallery-section{
+    background-color: #2e041c;
+    padding-top: 35px !important;
+    padding-bottom: 35px !important;
+}
+
+.service-title,
+.choose-title,
+.gallery-title,
+.booking-title{
+    color: #e1d7d4;
+    font-size: 42px;
+    font-family: serif;
+}
+
+.service-subtitle,
+.choose-subtitle{
+    color: #f8f4ee;
+}
+
+.service-card,
+.choose-card{
+    background-color: #F8F4EE;
+    border: 1px solid #C8A96B;
+    border-radius: 18px;
+    transition: 0.4s;
+    height: 100%;
+}
+.choose-card{
+    padding: 18px 10px !important;
+    background:rgba(255,255,255,0.06);
+    border:1px solid #C8A96B;
+}
+
+.service-card{
+    padding: 18px 10px !important;
+}
+.service-card:hover,
+.choose-card:hover,
+.work-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0px 10px 30px rgba(200,169,107,0.3);
+    border-color: #C8A96B;
+}
+
+.service-card h3{
+    color: #5b2424;
+    margin-top: 12px;
+    font-size: 18px;
+}
+
+.choose-card h3{
+    color: #fbf7f7;
+    margin-top: 15px;
+}
+
+.service-card p{
+    color: #6b5b52;
+    font-size: 14px;
+}
+.choose-card p{
+    color: #f9f7f6;
+    font-size: 14px;
+}
+
+.service-btn{
+    border: 1px solid #C8A96B;
+    color: #C8A96B;
+    border-radius: 30px;
+    padding: 6px 15px;
+}
+
+.service-btn:hover{
+    background-color: #C8A96B;
+    color: white;
+}
+
+.img{
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 30%;
+    border:1px solid #C8A96B;
+}
+
+.gallery-box{
+    padding-top: 15px;
+    display: none;
+}
+
+.gallery-box.active{
+    display: block;
+}
+
+.pic{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.pic:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 10px 30px rgba(200,169,107,0.3);
+}
+
+.work-card{
+    background-color: #F8F4EE;
+    border: 1px solid #C8A96B;
+    border-radius: 12px;
+    padding: 5px;
+    transition: 0.4s;
+}
+
+.gallery-col{
+    width: 12.5%;
+    padding: 5px;
+    border:1px solid #C8A96B;
+    border-radius:10px;
+    overflow:hidden;
+}
+.work-card p{
+    color: #3B2A24;
+    margin-top: 6px;
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.booking-section{
+     background:#2A0D0D;
+}
+
+.booking-form{
+    background-color: rgba(255,255,255,0.08);
+    border: 1px solid #C8A96B;
+    border-radius: 20px;
+}
+
+.form-control,
+.form-select{
+    background-color: transparent;
+    color: white;
+    border: 1px solid #C8A96B;
+}
+
+.form-control::placeholder{
+    color: #ddd;
+}
+
+.form-select option{
+    color: black;
+}
+.book-btn{
+    background-color: #C8A96B;
+    border: none;
+    color: black;
+}
+
+.about-footer{
+     background:#5A1717;
+    color: #F8F4EE;
+}
+
+.about-title{
+    color: #C8A96B;
+    font-size: 40px;
+}
+
+.about-box{
+    background: rgba(255,255,255,0.08);
+    border: 1px solid #C8A96B;
+    border-radius: 20px;
+    transform: translateY(-8px);
+    border-color: #C8A96B;
+}
+.about-stats:hover{
+    transform: translateY(-4px);
+    stroke-dasharray: 1000;
+}
+
+.footer{
+     background:#1A0505;
+    border-top: 1px solid #C8A96B;
+}
+.about-box h3,
+.footer h5,
+.footer-logo{
+    color: #C8A96B;
+}
+.about-box p,
+.footer p,
+.footer a{
+    color: #F3E8DD;
+    text-decoration: none;
+}
+
+.footer a:hover{
+    color: #C8A96B;
+}
+
+.footer-bottom{
+    border-top: 1px solid rgba(200,169,107,0.4);
+}
+/* PACKAGES SECTION */
+
+.packages{
+    background-color:#2e041c;
+}
+
+.package-title{
+    color:#e1d7d4;
+    font-size:45px;
+    font-family:serif;
+}
+
+.package-subtitle{
+    color:#f8f4ee;
+}
+
+.package-card{
+    background-color:#F8F4EE;
+    border:1px solid #C8A96B;
+    border-radius:20px;
+    transition:0.4s;
+    height:100%;
+    position:relative;
+    margin-top:25px;
+    border: gold 1.5px solid;
+}
+.crown-icon{
+    position:absolute;
+    top:-22px;
+    left:50%;
+    transform:translateX(-50%);
+
+    background:#150a00;
+    color:white;
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+    box-shadow:0 5px 15px rgba(200,169,107,0.4);
+}
+.package-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0px 20px 40px rgba(194, 159, 91, 0.3);
+    border-color: #C8A96B;
+}
+
+.package-card h3{
+    color:#3B2A24;
+    margin-bottom:20px;
+    font-family:serif;
+}
+
+.package-card li{
+    margin-bottom:10px;
+    color:#6b5b52;
+}
+
+.package-card h2{
+    color:#C8A96B;
+    margin:20px 0;
+    font-weight:bold;
+}
+
+.package-btn{
+    background-color:#C8A96B;
+    color:black;
+    border-radius:30px;
+    padding:8px 25px;
+    border:none;
+}
+
+.package-btn:hover{
+    background-color:#2e041c;
+    color:white;
+}
+
+.popular{
+    border:2px solid gold;
+    transform:scale(1.03);
+}
+.reviews-section{
+    background-color: #2e041c;
+}
+
+.review-title{
+    color: #e1d7d4;
+    font-size: 42px;
+    font-family: serif;
+}
+
+.review-subtitle{
+    color: #f8f4ee;
+}
+
+.review-card{
+    background-color: #F8F4EE;
+    border: 1px solid #C8A96B;
+    border-radius: 20px;
+    height: 100%;
+    transition: 0.4s;
+}
+
+.review-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0px 10px 30px rgba(200,169,107,0.3);
+}
+
+.review-card h4{
+    color: #C8A96B;
+    letter-spacing: 3px;
+}
+
+.review-card p{
+    color: #6b5b52;
+    font-style: italic;
+}
+
+.review-card h5{
+    color: #3B2A24;
+}
+.service-title::after,
+.choose-title::after,
+.gallery-title::after,
+.package-title::after,
+.review-title::after,
+.booking-title::after,
+.about-title::after{
+    content:"";
+    display:block;
+    width:80px;
+    height:2px;
+    background:#C8A96B;
+    margin:10px auto 0;
+}
+@media(max-width:992px){
+    .gallery-col{
+        width: 25%;
+    }
+}
+
+@media(max-width:768px){
+    .hero{
+        height: 80vh;
+    }
+
+    .hero-text{
+        top: 28%;
+        left: 5%;
+        right: 5%;
+    }
+
+    .hero-text h1{
+        font-size: 34px;
+    }
+
+    .hero-text p{
+        font-size: 16px;
+    }
+
+    .content{
+        bottom: 10%;
+    }
+
+    .service-title,
+    .choose-title,
+    .gallery-title,
+    .booking-title,
+    .about-title{
+        font-size: 30px;
+    }
+
+    .navbar{
+        background-color: rgba(0,0,0,0.6) !important;
+    }
+}
+
+@media(max-width:576px){
+    .gallery-col{
+        width: 50%;
+    }
+
+    .pic{
+        height: 170px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg">
+<div class="container-fluid px-4">
+<img src="logo.jpeg" alt="logo" class="logo">
+<a class="navbar-brand" href="#">Hasini</a>
+
+<button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="#gallery">Our Work</a></li>
+<li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+<li class="nav-item"><a class="nav-link" href="#booking">Book Appointment</a></li>
+<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<section class="hero-section" id="home">
+<img src="heroimg.jpeg" alt="hero" class="hero">
+
+<div class="hero-text">
+<p>Luxury Bridal Makeup & Styling</p>
+<h1>Hasini Bridal Studio</h1>
+<p>Where every bride becomes royal with elegance, beauty, and confidence.</p>
+</div>
+
+<div class="content">
+<a href="#booking" class="btn" id="btn1">Book Consultation</a>
+<a href="#packages" class="btn" id="btn2">View Packages</a>
+</div>
+</section>
+
+<section class="services py-5" id="services">
+<div class="container-fluid px-4">
+
+<div class="text-center mb-4">
+<h2 class="service-title">Our Premium Services</h2>
+<p class="service-subtitle">Enhancing your beauty with elegance and perfection.</p>
+</div>
+
+<div class="row g-3">
+
+<div class="col-lg-2 col-md-4 col-sm-6">
+<div class="service-card text-center p-4">
+<img src="bridemakeup.jpeg" class="img">
+<h3>Bridal Makeup</h3>
+<p>Elegant bridal looks crafted beautifully.</p>
+<button class="btn service-btn" onclick="showGallery('bridal-gallery')">Explore</button>
+</div>
+</div>
+
+<div class="col-lg-2 col-md-4 col-sm-6">
+<div class="service-card text-center p-4">
+<img src="makeup.jpeg" class="img">
+<h3>HD Makeup</h3>
+<p>Flawless HD makeup with luxury finish.</p>
+<button class="btn service-btn" onclick="showGallery('hd-gallery')">Explore</button>
+</div>
+</div>
+
+<div class="col-lg-2 col-md-4 col-sm-6">
+<div class="service-card text-center p-4">
+<img src="hairstyle.jpeg" class="img">
+<h3>Hair Styling</h3>
+<p>Stylish bridal hairstyles for your look.</p>
+<button class="btn service-btn" onclick="showGallery('hair-gallery')">Explore</button>
+</div>
+</div>
+
+<div class="col-lg-2 col-md-4 col-sm-6">
+<div class="service-card text-center p-4">
+<img src="prebridecare.jpeg" class="img">
+<h3>Pre Bridal Care</h3>
+<p>Beauty care before your wedding day.</p>
+<button class="btn service-btn" onclick="showGallery('prebridal-gallery')">Explore</button>
+</div>
+</div>
+
+<div class="col-lg-2 col-md-4 col-sm-6">
+<div class="service-card text-center p-4">
+<img src="sareedroping.jpeg" class="img">
+<h3>Saree Draping</h3>
+<p>Traditional and modern draping styles.</p>
+<button class="btn service-btn" onclick="showGallery('saree-gallery')">Explore</button>
+</div>
+</div>
+
+<div class="col-lg-2 col-md-4 col-sm-6">
+<div class="service-card text-center p-4">
+<img src="receptionmakeup.jpeg" class="img">
+<h3>Reception Makeup</h3>
+<p>Glamorous evening makeup looks.</p>
+<button class="btn service-btn" onclick="showGallery('reception-gallery')">Explore</button>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="choose-us py-5">
+<div class="container">
+
+<div class="text-center mb-4">
+<h2 class="choose-title">Why Brides Choose Us</h2>
+<p class="choose-subtitle">Luxury beauty services crafted with elegance.</p>
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-6">
+<div class="choose-card text-center p-4">
+<img src="exp (2).jpeg" class="img" alt="experienced">
+<h3>Experienced Artists</h3>
+<p>Professional bridal experts with creative styling.</p>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="choose-card text-center p-4">
+<img src="pre (2).jpeg" class="img" alt="premium">
+<h3>Premium Products</h3>
+<p>Long-lasting branded beauty products.</p>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="choose-card text-center p-4">
+<img src="cus (2).jpeg" class="img" alt="customized">
+<h3>Customized Looks</h3>
+<p>Looks designed for every bride’s personality.</p>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="choose-card text-center p-4">
+<img src="user (2).jpeg" class="img" alt="client satisfaction">
+<h3>Client Satisfaction</h3>
+<p>Trusted by brides for elegant transformations.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="gallery-section py-5" id="gallery">
+<div class="container-fluid px-4">
+
+<div class="text-center mb-4">
+<h2 class="gallery-title">Our Work</h2>
+<p class="choose-subtitle">Explore our bridal looks, makeup styles, and beauty transformations.</p>
+</div>
+
+<div class="mb-3 d-flex flex-wrap gap-2 justify-content-center">
+<button class="btn service-btn" onclick="showGallery('all-images')">View All</button>
+<button class="btn service-btn" onclick="showGallery('bridal-gallery')">Bridal Makeup</button>
+<button class="btn service-btn" onclick="showGallery('hd-gallery')">HD Makeup</button>
+<button class="btn service-btn" onclick="showGallery('hair-gallery')">Hair Styling</button>
+<button class="btn service-btn" onclick="showGallery('prebridal-gallery')">Pre Bridal Care</button>
+<button class="btn service-btn" onclick="showGallery('saree-gallery')">Saree Draping</button>
+<button class="btn service-btn" onclick="showGallery('reception-gallery')">Reception Makeup</button>
+</div>
+
+<div class="gallery-box active" id="all-images">
+<div class="row g-0">
+<div class="gallery-col"><img src="pic1.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="pic2.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="pic3.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="pic4.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="pic5.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="pic6.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="pic7.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="pic8.jpeg" class="pic"></div>
+</div>
+<div class="row g-0">
+<div class="gallery-col"><img src="pic1.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="pic2.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="pic3.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="pic4.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="pic5.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="pic6.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="pic7.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="pic8.jpeg" class="pic"></div>
+</div>
+</div>
+
+<div class="gallery-box" id="bridal-gallery">
+<div class="row g-0">
+<div class="gallery-col"><img src="bridal1.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="bridal2.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="bridal3.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="bridal4.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="bridal5.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="bridal6.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="bridal7.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="bridal8.jpeg" class="pic"></div>
+</div>
+<div class="row g-0">
+<div class="gallery-col"><img src="bridal9.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="bridal10.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="bridal11.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="bridal12.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="bridal13.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="bridal14.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="bridal15.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="bridal16.jpeg" class="pic"></div>
+</div>
+</div>
+
+<div class="gallery-box" id="hd-gallery">
+<div class="row g-0">
+<div class="gallery-col"><img src="hd1.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hd2.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hd3.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hd4.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hd5.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hd6.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hd7.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hd8.jpeg" class="pic"></div>
+</div>
+<div class="row g-0">
+<div class="gallery-col"><img src="hd9.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hd10.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hd11.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hd12.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hd13.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hd14.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hd15.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hd16.jpeg" class="pic"></div>
+</div>
+</div>
+
+<div class="gallery-box" id="hair-gallery">
+<div class="row g-0">
+<div class="gallery-col"><img src="hair1.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hair2.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hair3.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hair4.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hair5.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hair6.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hair7.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hair8.jpeg" class="pic"></div>
+</div>
+<div class="row g-0">
+<div class="gallery-col"><img src="hair9.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hair10.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hair11.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hair12.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hair13.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hair14.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hair15.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="hair16.jpeg" class="pic"></div>
+</div>
+</div>
+
+<div class="gallery-box" id="prebridal-gallery">
+<div class="row g-0">
+<div class="gallery-col"><img src="prebridal1.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="prebridal2.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="prebridal3.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="prebridal4.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="prebridal5.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="prebridal6.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="prebridal7.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="prebridal8.jpeg" class="pic"></div>
+</div>
+<div class="row g-0">
+<div class="gallery-col"><img src="prebridal9.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="prebridal10.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="prebridal11.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="prebridal12.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="prebridal13.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="prebridal14.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="prebridal15.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="prebridal16.jpeg" class="pic"></div>
+</div>
+</div>
+
+<div class="gallery-box" id="saree-gallery">
+<div class="row g-0">
+<div class="gallery-col"><img src="saree1.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="saree2.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="saree3.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="saree4.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="saree5.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="saree6.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="saree7.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="saree8.jpeg" class="pic"></div>
+</div>
+<div class="row g-0">
+<div class="gallery-col"><img src="saree9.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="saree10.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="saree11.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="saree12.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="saree13.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="saree14.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="saree15.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="saree16.jpeg" class="pic"></div>
+</div>
+</div>
+
+<div class="gallery-box" id="reception-gallery">
+<div class="row g-0">
+<div class="gallery-col"><img src="reception1.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="reception2.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="reception3.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="reception4.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="reception5.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="reception6.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="reception7.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="reception8.jpeg" class="pic"></div>
+</div>
+<div class="row g-0">
+<div class="gallery-col"><img src="reception9.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="reception10.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="reception11.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="reception12.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="reception13.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="reception14.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="reception15.jpeg" class="pic"></div>
+<div class="gallery-col"><img src="reception16.jpeg" class="pic"></div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="packages py-5" id="packages">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="package-title">Our Bridal Packages</h2>
+      <p class="package-subtitle">Choose the perfect package for your special day.</p>
+    </div>
+     <div class="row g-4 justify-content-center">
+              <div class="col-lg-4 col-md-6">
+        <div class="package-card text-center p-4">
+          <h3>Basic Bridal Package</h3>
+          <ul class="list-unstyled">
+            <li>Bridal Makeup</li>
+            <li>Simple Hairstyle</li>
+            <li>Saree Draping</li>
+            <li>Basic Accessories</li>
+          </ul>
+          <h2>₹4,999</h2>
+          <a href="#booking" class="btn package-btn">Book Now</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="package-card text-center p-4 popular">
+
+               <div class="crown-icon">
+                       👑
+               </div>
+          <span class="badge bg-warning text-dark mb-2">Most Popular</span>
+          <h3>Premium Bridal Package</h3>
+          <ul class="list-unstyled">
+            <li>HD Makeup</li>
+            <li>Premium Hairstyle</li>
+            <li>Saree Draping</li>
+            <li>Pre Bridal Facial</li>
+          </ul>
+          <h2>₹9,999</h2>
+          <a href="#booking" class="btn package-btn">Book Now</a>
+        </div>
+    </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="package-card text-center p-4">
+          <h3>Luxury Bridal Package</h3>
+          <ul class="list-unstyled">
+            <li>Luxury HD Makeup</li>
+            <li>Premium Hair Styling</li>
+            <li>Jewelry Setting</li>
+            <li>Full Pre Bridal Care</li>
+          </ul>
+          <h2>₹14,999</h2>
+          <a href="#booking" class="btn package-btn">Book Now</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="reviews-section py-5" id="reviews">
+<div class="container">
+
+<div class="text-center mb-4">
+<h2 class="review-title">Bride Reviews</h2>
+<p class="review-subtitle">Happy words from our beautiful brides.</p>
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-4 col-md-6">
+<div class="review-card p-4 text-center">
+<h4>★★★★★</h4>
+<p>"My bridal look was exactly how I dreamed. Elegant, soft, and royal."</p>
+<h5>- Anusha</h5>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6">
+<div class="review-card p-4 text-center">
+<h4>★★★★★</h4>
+<p>"Makeup stayed perfect for the whole event. I felt so confident."</p>
+<h5>- Kavya</h5>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6">
+<div class="review-card p-4 text-center">
+<h4>★★★★★</h4>
+<p>"Very professional service. Hairstyle and saree draping were perfect."</p>
+<h5>- Meghana</h5>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+<section class="booking-section py-5" id="booking">
+<div class="container">
+
+<div class="text-center mb-4">
+<h2 class="booking-title">Book Your Appointment</h2>
+<p class="booking-subtitle text-white">Reserve your bridal beauty slot with us.</p>
+</div>
+
+<div class="row justify-content-center">
+<div class="col-lg-8">
+
+<div class="booking-form p-4">
+
+<div class="text-center mb-4">
+<h4 class="form-heading text-white">Let’s Create Your Perfect Look</h4>
+<p class="form-text text-white">Fill your details and we will contact you soon.</p>
+</div>
+
+<form>
+
+<div class="row g-3">
+
+<div class="col-md-6">
+<label class="visually-hidden" for="name">Your Name</label>
+<input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+</div>
+
+<div class="col-md-6">
+<label class="visually-hidden" for="email">Email Address</label>
+<input type="email" id="email" name="email" class="form-control" placeholder="Email Address" required>
+</div>
+
+<div class="col-md-6">
+<label class="visually-hidden" for="phone">Phone Number</label>
+<input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone Number" required>
+</div>
+
+<div class="col-md-6">
+<label class="visually-hidden" for="event-date">Event Date</label>
+<input type="date" id="event-date" name="event-date" class="form-control" required>
+</div>
+
+<div class="col-md-12">
+<label class="visually-hidden" for="service">Select Service</label>
+<select id="service" name="service" class="form-select" required>
+<option value="" selected disabled>Select Service</option>
+<option>Bridal Makeup</option>
+<option>HD Makeup</option>
+<option>Hair Styling</option>
+<option>Pre Bridal Care</option>
+<option>Saree Draping</option>
+<option>Reception Makeup</option>
+<option>Basic Bridal Package</option>
+<option>Premium Bridal Package</option>
+<option>Luxury Bridal Package</option>
+</select>
+</div>
+
+<div class="col-md-12">
+<label class="visually-hidden" for="message">Message</label>
+<textarea id="message" name="message" class="form-control" rows="4" placeholder="Tell us about your event / preferred look"></textarea>
+</div>
+
+<div class="col-md-12">
+<button type="submit" class="btn book-btn w-100">Book Appointment</button>
+</div>
+
+</div>
+
+</form>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="about-footer py-5" id="about">
+<div class="container">
+
+<div class="row align-items-center g-4">
+
+<div class="col-lg-6">
+<h2 class="about-title">About Hasini Bridal Studio</h2>
+<p>We create elegant bridal looks with premium makeup, graceful styling, and luxury beauty care to make every bride feel royal.</p>
+</div>
+
+<div class="col-lg-6">
+<div class="about-box p-4">
+<h4 class="text-warning">Our Special Touch</h4>
+<p>Luxury bridal makeup, customized styles, premium products, and flawless finishing for your special day.</p>
+</div>
+</div>
+<div class="row g-3">
+
+  <div class="col-lg-3 col-md-6 about-stats">
+    <div class="about-box p-4 text-center">
+      <h3>500+</h3>
+      <p>Happy Brides</p>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6 about-stats">
+    <div class="about-box p-4 text-center">
+      <h3>5+</h3>
+      <p>Years of Experience</p>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6 about-stats">
+    <div class="about-box p-4 text-center">
+      <h3>100%</h3>
+      <p>Client Satisfaction</p>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6 about-stats">
+    <div class="about-box p-4 text-center">
+      <h3>Premium</h3>
+      <p>Products Used</p>
+    </div>
+  </div>
+
+</div>
+</section>
+<section class="contact-section py-5" id="contact">
+    <h1 class="text-center text-white">✧ Contact Us ✧</h1>
+<footer class="footer py-4 mt-4">
+<div class="container px-4">
+
+<div class="row gy-4">
+
+<div class="col-lg-4">
+<h3 class="footer-logo">Hasini Bridal Studio</h3>
+<p>Where every bride becomes royal with beauty and confidence.</p>
+</div>
+
+<div class="col-lg-4">
+<h5>Quick Links</h5>
+<ul class="list-unstyled">
+<li><a href="#home">Home</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#gallery">Our Work</a></li>
+<li><a href="#booking">Book Appointment</a></li>
+<li><a href="#about">About</a></li>
+</ul>
+</div>
+
+<div class="col-lg-4">
+<h5>Contact</h5>
+<p>Rajahmundry, Andhra Pradesh</p>
+<div class="social-icons mt-3"></div>
+<a href="https://www.instagram.com/hasini_bridal_studio/" class="social-btn">
+    <i class="bi bi-instagram"></i>
+</a>
+
+<a href="https://wa.me/919999999999" class="social-btn">
+    <i class="bi bi-whatsapp"></i>
+</a>
+<p>Email: hasinibridalstudio@gmail.com</p>
+</div>
+</div>
+</div>
+
+<div class="footer-bottom text-center pt-3 mt-3">
+<p>© 2026 Hasini Bridal Studio. All Rights Reserved.</p>
+</div>
+
+</div>
+</footer>
+</section>
+
+<script>
+function showGallery(id){
+    let galleries = document.querySelectorAll('.gallery-box');
+
+    galleries.forEach(function(box){
+        box.classList.remove('active');
+    });
+
+    document.getElementById(id).classList.add('active');
+
+    document.getElementById('gallery').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conditional operators</title>
+    <script>
+        function conditional() {
+            let x = parseFloat(document.getElementById("firstNumber").value);
+            let y = parseFloat(document.getElementById("secondNumber").value);
+            let isEqual = (x == y);
+            let isStrictEqual = (x === y);
+            let isNotEqual = (x != y);
+            let isGreaterThan = (x > y);
+            let isLessThan = (x < y);
+            let isGreaterThanOrEqual = (x >= y);
+            let isLessThanOrEqual = (x <= y);
+            alert(
+                "x == y: " + isEqual +
+                "\nx === y: " + isStrictEqual +
+                "\nx != y: " + isNotEqual +
+                "\nx > y: " + isGreaterThan +
+                "\nx < y: " + isLessThan +
+                "\nx >= y: " + isGreaterThanOrEqual +
+                "\nx <= y: " + isLessThanOrEqual
+            );
+        }
+    </script>
+</head>
+<body>
+    <h1>Conditional Operators</h1>
+    <label for="firstNumber">First Number:</label>
+     <input type="number" id="firstNumber">
+     <label for="secondNumber">Second Number:</label>
+     <input type="number" id="secondNumber">
+     <button onclick="conditional()">Calculate</button>
+</body>
+</html>

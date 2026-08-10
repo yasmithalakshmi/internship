@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #product{
+            width: 50%;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+      function generateBill()
+      {
+
+    let pname = document.getElementById("productName").value;
+    let qty = document.getElementById("quantity").value;
+    let price = document.getElementById("price").value;
+
+    let total = qty * price;
+    let gst = total * 0.18;
+    let amount = total + gst;
+
+    document.getElementById("pname").innerHTML = pname;
+    document.getElementById("pqty").innerHTML = qty;
+    document.getElementById("pprice").innerHTML = "₹ " + price;
+    document.getElementById("total").innerHTML = "₹ " + total;
+    document.getElementById("gst").innerHTML = "₹ " + gst;
+    document.getElementById("amount").innerHTML = "₹ " + amount;
+
+     let modal = new bootstrap.Modal(document.getElementById("billModal"));
+    modal.show();
+}
+function printBill() {
+    let bill = document.getElementById("billContent").innerHTML;
+
+    let printWindow = window.open("", "", "width=600,height=600");
+
+    printWindow.document.write(`
+        <html>
+        <head>
+            <title>Bill</title>
+            <style>
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+                td {
+                    border: 1px solid black;
+                    padding: 10px;
+                }
+                h2 {
+                    text-align: center;
+                }
+            </style>
+        </head>
+        <body>
+            <h2>Super Market Bill</h2>
+            ${bill}
+        </body>
+        </html>
+    `);
+
+    printWindow.document.close();
+    printWindow.print();
+}
+
+    </script>
+</head>
+<body style="background-color: rgb(235, 236, 237);">
+    <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid bg-primary">
+    <span class="navbar-text text-white playfair h2 ">
+      Super Market Billing App
+    </span>
+  </div>
+</nav>
+<div class="row g-3">
+  <div class="col-sm-7">
+     <span class="navbar-text text-dark playfair h3" style="margin-bottom: 100px;">
+      Add Product Details:
+    </span>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Product Name</label>
+    <input type="text" class="form-control" id="productName" placeholder="Enter Product Name"  style="width: 300px;">
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Quantity</label>
+    <input type="number" class="form-control" id="quantity" placeholder="Enter Quantity"  style="width: 300px;">
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Price</label>
+    <input type="number" class="form-control" id="price" placeholder="Enter Price" style="width: 300px;">
+</div>
+
+<button class="btn btn-primary" onclick="generateBill()" style="width: 150px;">
+    Generate Bill
+</button>
+<div class="modal fade" id="billModal" tabindex="-1" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Bill Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="billContent">
+        <table border="1" cellpadding="10" cellspacing="0" width="200">
+
+    <tr>
+        <td><b>Product Name:</b></td>
+        <td id="pname"></td>
+    </tr>
+
+    <tr>
+        <td><b>Product Quantity:</b></td>
+        <td id="pqty"></td>
+    </tr>
+
+    <tr>
+        <td><b>Product Price:</b></td>
+        <td id="pprice"></td>
+    </tr>
+
+    <tr>
+        <td><b>total:</b></td>
+        <td id="total"></td>
+    </tr>
+
+    <tr>
+        <td><b>GST (18%):</b></td>
+        <td id="gst"></td>
+    </tr>
+
+    <tr>
+        <td><b>Amount:
+
+        </b></td>
+        <td id="amount"></td>
+    </tr>
+
+</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="printBill()">print bill</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+</body>
+</html>

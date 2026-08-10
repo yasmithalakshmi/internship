@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f4f4f4;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #passengerNames {
+            margin-bottom: 10px;
+        }
+        #ticketContainer {
+            margin-top: 20px;
+        }
+        .ticket {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 5px solid #007bff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Bus Ticket Booking</h2>
+
+    <form id="bookingForm">
+        <label>Customer Name:</label><br>
+        <input type="text" id="customerName" required><br><br>
+
+        <label>Source:</label><br>
+        <input type="text" id="source" required><br><br>
+
+        <label>Destination:</label><br>
+        <input type="text" id="destination" required><br><br>
+
+        <label>Number of Passengers:</label><br>
+        <input type="number" id="passengerCount" min="1" required><br><br>
+
+        <div id="passengerNames"></div>
+
+        <button type="submit">Generate Tickets</button>
+    </form>
+
+    <div id="ticketContainer"></div>
+
+    <script>
+        let form = document.getElementById("bookingForm");
+        let container = document.getElementById("ticketContainer");
+        let passengerCountInput = document.getElementById("passengerCount");
+        let passengerNamesContainer = document.getElementById("passengerNames");
+
+        function createPassengerFields(count) {
+            passengerNamesContainer.innerHTML = "";
+            if (count > 0) {
+                for (let i = 1; i <= count; i++) {
+                    let label = document.createElement("label");
+                    label.textContent = "Passenger " + i + " Name:";
+                    let input = document.createElement("input");
+                    input.type = "text";
+                    input.className = "passengerInput";
+                    input.required = true;
+                    input.placeholder = "Enter name";
+
+                    passengerNamesContainer.appendChild(label);
+                    passengerNamesContainer.appendChild(document.createElement("br"));
+                    passengerNamesContainer.appendChild(input);
+                    passengerNamesContainer.appendChild(document.createElement("br"));
+                }
+            }
+        }
+
+        passengerCountInput.addEventListener("input", function () {
+            let count = parseInt(this.value) || 0;
+            createPassengerFields(count);
+        });
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            container.innerHTML = "";
+            let customerName = document.getElementById("customerName").value;
+            let source = document.getElementById("source").value;
+            let destination = document.getElementById("destination").value;
+            let totalPassengers = parseInt(document.getElementById("passengerCount").value);
+            let passengerInputs = document.querySelectorAll(".passengerInput");
+
+            if (totalPassengers > 0 && passengerInputs.length === totalPassengers) {
+                for (let i = 0; i < passengerInputs.length; i++) {
+                    let passengerName = passengerInputs[i].value.trim();
+                    if (passengerName === "") {
+                        alert("Please fill all passenger names.");
+                        return;
+                    }
+
+                    let ticket = document.createElement("div");
+                    ticket.className = "ticket";
+                    ticket.innerHTML = `<h3>Ticket ${i + 1}</h3><p>Customer: ${customerName}</p><p>Name: ${passengerName}</p><p>Route: ${source} to ${destination}</p>`;
+                    container.appendChild(ticket);
+                }
+            } else {
+                alert("Please enter a valid number of passengers.");
+            }
+        });
+    </script>
+</body>
+</html>

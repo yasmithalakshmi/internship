@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechZone - Laptop Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    *{scroll-behavior:smooth}
+    body{font-family:Arial,sans-serif;background:#f8fafc;color:#0f172a;overflow-x:hidden}
+    .navbar{background:rgba(255,255,255,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 3px 18px rgba(0,0,0,.10)}
+    .navbar-brand{color:#2563eb!important;font-size:26px;font-weight:900}
+    .nav-link{font-weight:600;color:#0f172a!important;position:relative}
+    .nav-link::after{content:"";position:absolute;left:8px;bottom:3px;width:0;height:2px;background:#2563eb;transition:.3s}
+    .nav-link:hover,.nav-link.active{color:#2563eb!important}
+    .nav-link:hover::after,.nav-link.active::after{width:65%}
+    .btn-main{background:#2563eb;color:#fff;border:none;border-radius:8px;padding:10px 24px;font-weight:700}
+    .btn-main:hover{background:#1d4ed8;color:#fff}
+    .btn-outline-main{border:2px solid #fff;color:#fff;border-radius:8px;padding:10px 24px;font-weight:700}
+    .btn-outline-main:hover{background:#fff;color:#0f172a}
+    
+.hero{
+    position:relative;
+    min-height:92vh;
+    color:white;
+    display:flex;
+    align-items:center;
+    padding-top:80px;
+    overflow:hidden;
+}
+.hero-slider{
+    position:absolute;
+    inset:0;
+    display:flex;
+    width:max-content;
+    animation:heroScroll 28s linear infinite;
+}
+.hero-slider img{
+    width:100vw;
+    height:100%;
+    object-fit:cover;
+    flex-shrink:0;
+}
+.hero::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg,rgba(15,23,42,.75),rgba(37,99,235,.45));
+}
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+@keyframes heroScroll{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-400vw)}
+}
+
+    .hero h1{font-size:65px;font-weight:900;line-height:1.1}
+    .hero h1 span{color:#38bdf8}
+    
+    .section-title{font-weight:900;color:#0f172a;margin-bottom:35px}
+    .feature-strip{background:#020617;color:white;padding:25px 0}
+    .feature-item{border-right:1px solid rgba(255,255,255,.15)}
+    .feature-item:last-child{border-right:none}
+    .card-box,.category-card,.brand-box,.form-box{background:white;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,.08)}
+    .card-box{padding:25px;height:100%;transition:.3s}
+    .card-box:hover,.category-card:hover{transform:translateY(-6px)}
+    .category-card{padding:25px;height:100%;overflow:hidden;transition:.3s;background:linear-gradient(135deg,#eff6ff,#fff)}
+    .category-card img{height:150px;width:100%;object-fit:contain;margin-top:10px}
+    .brand-slider{overflow:hidden;position:relative;width:100%}
+    .brand-track{display:flex;gap:18px;width:max-content;animation:brandScroll 22s linear infinite}
+    .brand-slider:hover .brand-track{animation-play-state:paused}
+    .brand-box{min-width:170px;padding:22px;font-size:25px;font-weight:900;height:100%;border-radius:18px;color:white;box-shadow:0 8px 25px rgba(0,0,0,.12)}
+    .brand-dell{background:#0076ce}.brand-hp{background:#0096d6}.brand-lenovo{background:#e2231a}.brand-asus{background:#1e3a8a}.brand-acer{background:#83b81a}.brand-msi{background:#dc2626}
+    @keyframes brandScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .offer-box{background:linear-gradient(135deg,#0f172a,#2563eb);color:white;border-radius:18px;padding:35px;height:100%}
+    .service-icon{font-size:40px;margin-bottom:15px}
+    .form-box{padding:35px}
+    .footer{background:#020617;color:white;padding:45px 0 15px}
+    .footer a{color:#cbd5e1;text-decoration:none;display:block;margin-bottom:8px}
+    .footer a:hover{color:#38bdf8}
+    .whatsapp,.top-btn{position:fixed;right:18px;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:white;z-index:999;box-shadow:0 5px 18px rgba(0,0,0,.25);font-size:23px}
+    .whatsapp{bottom:18px;background:#25d366}.top-btn{bottom:82px;background:#2563eb}
+    @media(max-width:991px){
+      .hero{text-align:center;min-height:auto;padding:110px 0 60px}
+      .hero h1{font-size:42px}
+      .feature-item{border-right:none;margin-bottom:20px}
+      .navbar-collapse{background:white;padding:15px;border-radius:12px;margin-top:12px}
+    }
+    @media(max-width:576px){
+      .hero h1{font-size:33px}.hero p{font-size:15px}
+      .hero .btn-main,.hero .btn-outline-main{display:block;width:100%;margin:10px 0!important}
+      .section-title{font-size:26px}.form-box{padding:24px}.category-card img{height:120px}
+      .whatsapp,.top-btn{width:46px;height:46px;right:14px;font-size:20px}
+    }
+  
+    @media(max-width:991px){
+      .navbar{background:rgba(255,255,255,.90)}
+      .navbar-collapse{background:rgba(255,255,255,.95);backdrop-filter:blur(12px)}
+      .brand-box{min-width:145px;font-size:21px;padding:18px}
+    }
+    @media(max-width:576px){
+      .hero{background-position:center;min-height:auto;padding:105px 0 50px}
+      
+      .brand-box{min-width:130px;font-size:19px;padding:16px}
+      .brand-track{gap:12px;animation-duration:18s}
+      .offer-box{padding:25px}
+      .feature-strip{padding:22px 0 8px}
+      .footer{text-align:center}
+    }
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#home">TechZone</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="#products" class="nav-link">Products</a></li>
+        <li class="nav-item"><a href="#brands" class="nav-link">Brands</a></li>
+        <li class="nav-item"><a href="#offers" class="nav-link">Offers</a></li>
+        <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-main ms-lg-3">Enquiry Now</a>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero" id="home">
+<div class="hero-slider">
+<img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1600&q=80">
+<img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1600&q=80">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80">
+<img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=1600&q=80">
+<img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1600&q=80">
+</div>
+<div class="container hero-content">
+<div class="row justify-content-center text-center">
+<div class="col-lg-8">
+<span class="badge bg-primary mb-3">Best Laptops, Best Prices</span>
+<h1>Best Laptops <span>At Best Prices</span></h1>
+<p class="lead mt-3 mb-4">Latest laptops, best performance, student models, gaming laptops, repairs and trusted support.</p>
+<a href="#products" class="btn btn-main me-2">View Laptops</a>
+<a href="#contact" class="btn btn-outline-main">Get Best Price</a>
+</div>
+</div>
+</div>
+</section>
+
+
+
+<section class="feature-strip">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-3 feature-item"><h5>🛡️ 100% Original</h5><p class="mb-0">Trusted products</p></div>
+      <div class="col-md-3 feature-item"><h5>💳 EMI Available</h5><p class="mb-0">Easy payments</p></div>
+      <div class="col-md-3 feature-item"><h5>✅ 1 Year Warranty</h5><p class="mb-0">Brand warranty</p></div>
+      <div class="col-md-3 feature-item"><h5>🚚 Fast Delivery</h5><p class="mb-0">Safe delivery</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="products">
+  <div class="container">
+    <h2 class="section-title text-center">Shop By Category</h2>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="category-card"><h4>Student Laptops</h4><p>Best for study, online classes and daily use.</p><h6>From ₹25,000</h6><a href="#contact" class="btn btn-main mt-2">Explore</a><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=700&q=80"></div></div>
+      <div class="col-md-4"><div class="category-card"><h4>Gaming Laptops</h4><p>High performance laptops for gaming and editing.</p><h6>From ₹60,000</h6><a href="#contact" class="btn btn-main mt-2">Explore</a><img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=700&q=80"></div></div>
+      <div class="col-md-4"><div class="category-card"><h4>Business Laptops</h4><p>Powerful and reliable laptops for office work.</p><h6>From ₹35,000</h6><a href="#contact" class="btn btn-main mt-2">Explore</a><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-white" id="brands">
+  <div class="container text-center">
+    <h2 class="section-title">Available Brands</h2>
+
+    <div class="brand-slider">
+      <div class="brand-track">
+        <div class="brand-box brand-dell">Dell</div>
+        <div class="brand-box brand-hp">HP</div>
+        <div class="brand-box brand-lenovo">Lenovo</div>
+        <div class="brand-box brand-asus">ASUS</div>
+        <div class="brand-box brand-acer">Acer</div>
+        <div class="brand-box brand-msi">MSI</div>
+
+        <div class="brand-box brand-dell">Dell</div>
+        <div class="brand-box brand-hp">HP</div>
+        <div class="brand-box brand-lenovo">Lenovo</div>
+        <div class="brand-box brand-asus">ASUS</div>
+        <div class="brand-box brand-acer">Acer</div>
+        <div class="brand-box brand-msi">MSI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="offers">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-6"><div class="offer-box"><h3>Special Laptop Offers</h3><p>Great discounts on selected laptops, student models and accessories.</p><a href="#contact" class="btn btn-light rounded-2">View Offers</a></div></div>
+      <div class="col-md-6"><div class="offer-box"><h3>Laptop Repair & Service</h3><p>Chip level repair, OS installation, keyboard, battery and display replacement.</p><a href="#services" class="btn btn-light rounded-2">Know More</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-white" id="services">
+  <div class="container text-center">
+    <h2 class="section-title">Repair & Support Services</h2>
+    <div class="row g-4">
+      <div class="col-md-3 col-sm-6"><div class="card-box"><div class="service-icon">💻</div><h5>Laptop Repair</h5><p>Expert technicians for all laptop issues.</p></div></div>
+      <div class="col-md-3 col-sm-6"><div class="card-box"><div class="service-icon">⚙️</div><h5>Hardware Upgrade</h5><p>RAM, SSD, battery and display upgrades.</p></div></div>
+      <div class="col-md-3 col-sm-6"><div class="card-box"><div class="service-icon">🛡️</div><h5>AMC Plans</h5><p>Affordable annual maintenance support.</p></div></div>
+      <div class="col-md-3 col-sm-6"><div class="card-box"><div class="service-icon">🚚</div><h5>Pick & Drop</h5><p>Easy and safe service pickup support.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="contact">
+  <div class="container">
+    <h2 class="section-title text-center">Enquiry Form</h2>
+    <div class="form-box">
+      <form>
+        <div class="row g-3">
+          <div class="col-md-4"><input type="text" class="form-control" placeholder="Your Name"></div>
+          <div class="col-md-4"><input type="tel" class="form-control" placeholder="Your Phone"></div>
+          <div class="col-md-4"><select class="form-select"><option selected>Select Requirement</option><option>Student Laptop</option><option>Gaming Laptop</option><option>Business Laptop</option><option>Laptop Repair</option><option>Accessories</option></select></div>
+          <div class="col-12"><textarea class="form-control" rows="4" placeholder="Tell us your requirement"></textarea></div>
+          <div class="col-12 text-center"><button type="button" class="btn btn-main">Submit Enquiry</button></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4"><h4>TechZone</h4><p>Best laptops, best prices, trusted service and support.</p></div>
+      <div class="col-md-4"><h5>Quick Links</h5><a href="#home">Home</a><a href="#products">Products</a><a href="#brands">Brands</a><a href="#offers">Offers</a><a href="#services">Services</a></div>
+      <div class="col-md-4"><h5>Contact Us</h5><p>+91 98765 43210</p><p>info@techzone.com</p><p>Rajahmundry, Andhra Pradesh</p></div>
+    </div>
+    <hr>
+    <p class="text-center mb-0">© 2026 TechZone. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<a href="#home" class="top-btn">↑</a>
+<a href="https://wa.me/919876543210" class="whatsapp">☏</a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const navLinks=document.querySelectorAll('.nav-link');
+  navLinks.forEach(link=>{link.addEventListener('click',()=>{navLinks.forEach(item=>item.classList.remove('active'));link.classList.add('active');});});
+</script>
+</body>
+</html>
