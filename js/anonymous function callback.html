@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anonymous function callback</title>
+</head>
+<body>
+    <script>
+        function greet(name, callback) {
+            console.log(name);
+            callback();
+        }
+
+        greet("yashu", function() {
+            console.log("Goodbye!");
+        });
+    </script>
+</body>
+</html>

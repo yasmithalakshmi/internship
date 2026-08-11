@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nested functions</title>
+</head>
+<body>
+    <script>
+        function outerFunction() {
+            var outerVariable = "I am from the outer function";
+
+            function innerFunction() {
+                var innerVariable = "I am from the inner function";
+                console.log(outerVariable); // Accessing outer variable
+                console.log(innerVariable); // Accessing inner variable
+            }
+
+            innerFunction();
+        }
+
+        outerFunction();
+    </script>
+</body>
+</html>
