@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function scope</title>
+</head>
+<body>
+    <script>
+        function myFunction() {
+            var x = 10; // x is defined in the function scope
+            console.log(x); // it will print 10
+        }
+
+        myFunction(); // Calling the function
+        // console.log(x); // This would show an error because x is not defined in this scope
+    </script>
+</body>
+</html>
