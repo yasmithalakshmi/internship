@@ -1,0 +1,9 @@
+Customer_ID,Name,Balance,Loan,City
+C001,Ravi,850000,600000,Rajahmundry
+C002,Priya,420000,200000,Vijayawada
+C003,Arun,1250000,800000,Visakhapatnam
+C004,Sneha,310000,0,Rajahmundry
+C005,Kiran,670000,550000,Hyderabad
+C006,Mahi,950000,750000,Vijayawada
+C007,Latha,280000,100000,Hyderabad
+C008,Suresh,1450000,900000,Visakhapatnam

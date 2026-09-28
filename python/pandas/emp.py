@@ -1,0 +1,16 @@
+import pandas as pd
+df=pd.read_csv('emp.csv')
+print(df)
+print(df.head())
+print(df.tail())   
+print(df.columns)    
+print(df.shape)
+print(df.info())
+print(df.describe())
+print(df['Name'])
+print(df[['Name','salary']])
+print(df.iloc[0])
+print(df.iloc[0:3])
+print(df[df['Age']>20])
+print(df[df['Experience']>5])
+    
