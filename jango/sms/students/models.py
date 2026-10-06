@@ -1,9 +1,9 @@
 from django.db import models
 
 # Create your models here.
-class student(models.Models):
-    s_name = models.charFeild(max_length=200)
-    s_phone = models.charField()
-    s_email = models.charField()
-    s_marks= models.integerField()
+class student(models.Model):
+    s_name = models.CharField(max_length=200)
+    s_phone = models.CharField()
+    s_email = models.CharField()
+    s_marks= models.IntegerField()
     

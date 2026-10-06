@@ -1,0 +1,10 @@
+import matplotlib.pyplot as plt
+
+x = [1,2,3,4,5]
+y = ['a','b','c','d','e']
+
+plt.plot(x,y)
+plt.title("first graph")
+plt.xlabel("numbers")
+plt.ylabel("alphabets")
+plt.show()
